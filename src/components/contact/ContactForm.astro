@@ -71,7 +71,7 @@ const { locale } = Astro.props;
   </div>
   <button type="submit">{t(locale, 'form.submit')}</button>
   <p class="privacy">
-    {t(locale, 'form.privacyNote')}
+    {t(locale, 'form.privacyNote')}{' '}
     <a href={getLocalizedPath('privacy', locale)}>
       {t(locale, 'form.privacyLink')}
     </a>
