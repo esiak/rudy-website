@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import type { getTestimonials } from '../lib/content';
+
+type Props = Awaited<ReturnType<typeof getTestimonials>>[number];
+
+const { quote, authorName, authorRole, photo } = Astro.props;
+---
+
+<figure class="testimonial">
+  <blockquote class="testimonial__quote">{quote}</blockquote>
+  <div class="testimonial__author">
+    <Image
+      class="testimonial__photo"
+      src={photo}
+      alt={authorName}
+      width={96}
+      height={96}
+    />
+    <figcaption>
+      <strong>{authorName}</strong>
+      <span>{authorRole}</span>
+    </figcaption>
+  </div>
+</figure>
+
+<style>
+  .testimonial {
+    background: var(--color-surface-alt);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+  }
+
+  .testimonial__quote {
+    font-size: 1.125rem;
+    font-style: italic;
+    margin-block-end: var(--space-3);
+  }
+
+  .testimonial__author {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .testimonial__photo {
+    border-radius: 50%;
+    flex: none;
+    height: 96px;
+    object-fit: cover;
+    width: 96px;
+  }
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+  }
+
+  figcaption span {
+    color: var(--color-text-muted);
+  }
+</style>

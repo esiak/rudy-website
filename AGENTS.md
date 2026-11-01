@@ -14,6 +14,9 @@ per entry), `src/assets/` (images) and `src/lib/` (content helpers). Every
 localized content field needs `de`, `fr` and `en`.
 Services page: `src/components/services/` (page component and styles); its
 copy is in `src/content/services-page/page.json` (`servicesPage` collection).
+`src/components/Testimonial.astro` is the shared testimonial component (props: one
+entry from `getTestimonials`); page-specific components live in
+`src/components/<page>/`.
 
 ## Setup
 

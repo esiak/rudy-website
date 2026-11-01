@@ -1,0 +1,28 @@
+---
+import { locales, routes } from '../../i18n/routes';
+import type { Locale } from '../../i18n/routes';
+import { t } from '../../i18n/ui';
+import AboutPage from '../../components/about/AboutPage.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({
+    params: { locale, about: routes.about[locale] },
+    props: { locale },
+  }));
+}
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<BaseLayout
+  locale={locale}
+  pageKey="about"
+  title={`${t(locale, 'nav.about')} | Dr. Rudy Pastel`}
+>
+  <AboutPage locale={locale} />
+</BaseLayout>

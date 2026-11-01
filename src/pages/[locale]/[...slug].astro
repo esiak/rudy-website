@@ -8,6 +8,7 @@ export function getStaticPaths() {
   return locales.flatMap((locale) =>
     (Object.keys(routes) as PageKey[])
       .filter((pageKey) => pageKey !== 'services')
+      .filter((pageKey) => pageKey !== 'about')
       .map((pageKey) => ({
         params: { locale, slug: routes[pageKey][locale] || undefined },
         props: { locale, pageKey },
