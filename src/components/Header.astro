@@ -1,0 +1,212 @@
+---
+import { getAlternates, getLocalizedPath, locales } from '../i18n/routes';
+import type { Locale, PageKey } from '../i18n/routes';
+import { t } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  pageKey?: PageKey;
+}
+
+const { locale, pageKey } = Astro.props;
+const navKeys = ['home', 'services', 'about', 'contact'] as const;
+const alternates = pageKey
+  ? getAlternates(pageKey, locale)
+  : getAlternates('home', locale);
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__title" href={getLocalizedPath('home', locale)}>
+      Dr. Rudy Pastel – Data Scientist
+    </a>
+    <button
+      type="button"
+      class="menu-button"
+      aria-controls="site-nav-list"
+      aria-expanded="false"
+    >
+      {t(locale, 'a11y.menu')}
+    </button>
+    <nav class="site-nav" aria-label={t(locale, 'a11y.nav')}>
+      <ul id="site-nav-list" class="site-nav__list">
+        {navKeys.map((key) => (
+          <li>
+            <a
+              href={getLocalizedPath(key, locale)}
+              aria-current={key === pageKey ? 'page' : undefined}
+            >
+              {t(locale, `nav.${key}`)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <ul class="lang-switcher" aria-label={t(locale, 'a11y.language')}>
+      {locales.map((code) => {
+        const alt = alternates.find((a) => a.locale === code);
+        return (
+          <li>
+            {alt ? (
+              <a href={alt.path} lang={code} hreflang={code}>
+                {code.toUpperCase()}
+              </a>
+            ) : (
+              <span lang={code} aria-current="true">
+                {code.toUpperCase()}
+              </span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>('.menu-button');
+  const list = document.getElementById('site-nav-list');
+
+  if (button && list) {
+    root.classList.add('js');
+
+    const setOpen = (open: boolean) => {
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    button.addEventListener('click', () => {
+      setOpen(button.getAttribute('aria-expanded') !== 'true');
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (
+        event.key === 'Escape' &&
+        button.getAttribute('aria-expanded') === 'true'
+      ) {
+        setOpen(false);
+        button.focus();
+      }
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    background: var(--color-header);
+    color: var(--color-surface);
+  }
+
+  .site-header a,
+  .site-header span {
+    color: var(--color-surface);
+  }
+
+  .site-header :focus-visible {
+    outline-color: var(--color-accent);
+  }
+
+  .site-header__inner {
+    align-items: center;
+    column-gap: var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    padding-block: var(--space-2);
+  }
+
+  .site-header__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-right: auto;
+    text-decoration: none;
+  }
+
+  .lang-switcher,
+  .site-nav__list {
+    display: flex;
+    gap: var(--space-3);
+    list-style: none;
+    padding: 0;
+  }
+
+  .lang-switcher a,
+  .lang-switcher span {
+    display: inline-block;
+    padding-block: var(--space-2);
+  }
+
+  .lang-switcher a {
+    text-decoration: none;
+  }
+
+  .lang-switcher a:hover {
+    text-decoration: underline;
+  }
+
+  .lang-switcher [aria-current='true'] {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  .site-nav__list a {
+    display: inline-block;
+    padding-block: var(--space-2);
+    text-decoration: none;
+  }
+
+  .site-nav__list a:hover {
+    text-decoration: underline;
+  }
+
+  .site-nav__list a[aria-current='page'] {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  .menu-button {
+    background: none;
+    border: 1px solid var(--color-surface);
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    cursor: pointer;
+    display: none;
+    font: inherit;
+    padding: var(--space-1) var(--space-3);
+  }
+
+  :global(.js) .menu-button {
+    display: inline-block;
+  }
+
+  @media (max-width: 767px) {
+    .lang-switcher {
+      order: 1;
+    }
+
+    .menu-button {
+      order: 2;
+    }
+
+    .site-nav {
+      flex-basis: 100%;
+      order: 3;
+    }
+
+    .site-nav__list {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    :global(.js)
+      .site-header:has(.menu-button[aria-expanded='false'])
+      .site-nav {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    :global(.js) .menu-button {
+      display: none;
+    }
+  }
+</style>

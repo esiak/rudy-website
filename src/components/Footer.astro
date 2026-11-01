@@ -1,0 +1,52 @@
+---
+import { getLocalizedPath } from '../i18n/routes';
+import type { Locale } from '../i18n/routes';
+import { t } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>© {year} Rudy Pastel</p>
+    <ul>
+      <li>
+        <a href={getLocalizedPath('privacy', locale)}>
+          {t(locale, 'footer.privacy')}
+        </a>
+      </li>
+      <li>
+        <a href={getLocalizedPath('imprint', locale)}>
+          {t(locale, 'footer.imprint')}
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-surface-alt);
+    color: var(--color-text-muted);
+    padding-block: var(--space-4);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: space-between;
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-3);
+    list-style: none;
+    padding: 0;
+  }
+</style>

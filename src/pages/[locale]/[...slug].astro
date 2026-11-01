@@ -2,6 +2,7 @@
 import { locales, routes } from '../../i18n/routes';
 import type { Locale, PageKey } from '../../i18n/routes';
 import { t } from '../../i18n/ui';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
   return locales.flatMap((locale) =>
@@ -21,13 +22,10 @@ const { locale, pageKey } = Astro.props;
 const label = t(locale, `nav.${pageKey}`);
 ---
 
-<html lang={locale}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{label}</title>
-  </head>
-  <body>
-    <h1>{label}</h1>
-  </body>
-</html>
+<BaseLayout
+  locale={locale}
+  pageKey={pageKey}
+  title={`${label} | Dr. Rudy Pastel`}
+>
+  <h1>{label}</h1>
+</BaseLayout>

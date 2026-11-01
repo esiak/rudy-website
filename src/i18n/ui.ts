@@ -15,6 +15,10 @@ const de = {
   'form.email': 'E-Mail',
   'form.message': 'Nachricht',
   'form.submit': 'Absenden',
+  'a11y.skip': 'Zum Inhalt springen',
+  'a11y.menu': 'Menü',
+  'a11y.nav': 'Hauptnavigation',
+  'a11y.language': 'Sprache wählen',
 };
 
 export type UiKey = keyof typeof de;
@@ -34,6 +38,10 @@ const fr = {
   'form.email': 'E-mail',
   'form.message': 'Message',
   'form.submit': 'Envoyer',
+  'a11y.skip': 'Aller au contenu',
+  'a11y.menu': 'Menu',
+  'a11y.nav': 'Navigation principale',
+  'a11y.language': 'Choisir la langue',
 } satisfies Record<UiKey, string>;
 
 const en = {
@@ -51,6 +59,10 @@ const en = {
   'form.email': 'Email',
   'form.message': 'Message',
   'form.submit': 'Submit',
+  'a11y.skip': 'Skip to content',
+  'a11y.menu': 'Menu',
+  'a11y.nav': 'Main navigation',
+  'a11y.language': 'Choose language',
 } satisfies Record<UiKey, string>;
 
 export const ui: Record<Locale, Record<UiKey, string>> = { de, fr, en };
