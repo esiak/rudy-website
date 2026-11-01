@@ -11,6 +11,8 @@ export function getStaticPaths() {
       .filter((pageKey) => pageKey !== 'services')
       .filter((pageKey) => pageKey !== 'about')
       .filter((pageKey) => pageKey !== 'contact')
+      .filter((pageKey) => pageKey !== 'imprint')
+      .filter((pageKey) => pageKey !== 'privacy')
       .map((pageKey) => ({
         params: { locale, slug: routes[pageKey][locale] || undefined },
         props: { locale, pageKey },

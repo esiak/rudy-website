@@ -22,6 +22,9 @@ Home lives in `src/pages/[locale]/index.astro` with its components in
 prop is for pages built from full-bleed sections.
 `src/components/contact/` holds the contact form and its script. The thanks
 pages live outside the route map (slugs in `src/components/contact/thanks.ts`).
+Legal pages: `src/components/legal/` (component, styles and Markdown content); the
+page files are in `src/pages/{de,fr,en}/`; privacy changes are tracked in
+`docs/privacy-changes.md`.
 
 ## Setup
 
