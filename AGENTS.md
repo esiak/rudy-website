@@ -12,6 +12,8 @@ strings (`ui.ts`); new pages and strings must be added for all three languages.
 Content: `src/content.config.ts` (collections), `src/content/` (one JSON file
 per entry), `src/assets/` (images) and `src/lib/` (content helpers). Every
 localized content field needs `de`, `fr` and `en`.
+`src/components/contact/` holds the contact form and its script. The thanks
+pages live outside the route map (slugs in `src/components/contact/thanks.ts`).
 
 ## Setup
 
