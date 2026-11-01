@@ -35,7 +35,7 @@ const contactPath = getLocalizedPath('contact', locale);
         <p>{text[locale]}</p>
       ))}
       <p>
-        {page.talk[locale]}
+        {page.talk[locale]}{' '}
         <a href="mailto:pastel.web@rudypastel.com">pastel.web@rudypastel.com</a>
       </p>
       <a class="button" href={contactPath}>
@@ -73,6 +73,10 @@ const contactPath = getLocalizedPath('contact', locale);
       grid-template-columns: auto 1fr;
       align-items: start;
     }
+  }
+  .services-intro p,
+  section p {
+    margin-block-end: var(--space-3);
   }
   .button {
     display: inline-flex;
