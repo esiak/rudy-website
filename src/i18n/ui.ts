@@ -7,7 +7,7 @@ const de = {
   'nav.contact': 'Kontakt',
   'nav.imprint': 'Impressum',
   'nav.privacy': 'Datenschutz',
-  'button.contactMe': 'Kontaktiere mich',
+  'button.contactMe': 'Kontaktieren Sie mich',
   'button.moreInfo': 'Mehr Infos',
   'footer.privacy': 'Datenschutz',
   'footer.imprint': 'Impressum',
