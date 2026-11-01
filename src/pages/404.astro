@@ -1,25 +1,18 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Seite nicht gefunden</title>
-  </head>
-  <body>
-    <h1>Seite nicht gefunden</h1>
-    <ul>
-      <li>
-        <a href="/de/">Deutsch</a>
-      </li>
-      <li>
-        <a href="/fr/">Français</a>
-      </li>
-      <li>
-        <a href="/en/">English</a>
-      </li>
-    </ul>
-  </body>
-</html>
+<BaseLayout locale="de" title="Seite nicht gefunden | Dr. Rudy Pastel">
+  <h1>Seite nicht gefunden</h1>
+  <ul>
+    <li>
+      <a href="/de/">Deutsch</a>
+    </li>
+    <li>
+      <a href="/fr/">Français</a>
+    </li>
+    <li>
+      <a href="/en/">English</a>
+    </li>
+  </ul>
+</BaseLayout>

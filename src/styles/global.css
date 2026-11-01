@@ -1,0 +1,95 @@
+@import '@fontsource/poppins/latin-300.css';
+
+:root {
+  --color-primary: #0170b9;
+  --color-accent: #fdae00;
+  --color-navy: #1336ab;
+  --color-header: #3a3a3a;
+  --color-text-muted: #4b4f58;
+  --color-surface-alt: #f5f5f5;
+  --color-surface: #ffffff;
+  --font-heading: Verdana, Helvetica, Arial, sans-serif;
+  --font-body: Poppins, sans-serif;
+  --radius: 3px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --content-width: 1140px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-header);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+h3 {
+  color: var(--color-navy);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: var(--content-width);
+  padding-inline: var(--space-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
