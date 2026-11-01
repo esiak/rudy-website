@@ -17,6 +17,9 @@ copy is in `src/content/services-page/page.json` (`servicesPage` collection).
 `src/components/Testimonial.astro` is the shared testimonial component (props: one
 entry from `getTestimonials`); page-specific components live in
 `src/components/<page>/`.
+Home lives in `src/pages/[locale]/index.astro` with its components in
+`src/components/home/` and copy in `src/i18n/home.ts`; `BaseLayout`'s `fullWidth`
+prop is for pages built from full-bleed sections.
 
 ## Setup
 

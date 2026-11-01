@@ -1,0 +1,38 @@
+---
+interface Props {
+  variant: 'primary' | 'white' | 'grey';
+  id: string;
+  heading?: string;
+}
+
+const { variant, id, heading } = Astro.props;
+---
+
+<section
+  class={`band band--${variant}`}
+  data-section={id}
+  aria-labelledby={heading ? `${id}-heading` : undefined}
+>
+  <div class="container band__inner">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .band {
+    padding-block: var(--space-6);
+  }
+  .band--primary {
+    background: var(--color-primary);
+    color: var(--color-surface);
+  }
+  .band--white {
+    background: var(--color-surface);
+  }
+  .band--grey {
+    background: var(--color-surface-alt);
+  }
+  .band__inner > :global(p) {
+    margin-block-end: var(--space-3);
+  }
+</style>
