@@ -12,6 +12,9 @@ strings (`ui.ts`); new pages and strings must be added for all three languages.
 Content: `src/content.config.ts` (collections), `src/content/` (one JSON file
 per entry), `src/assets/` (images) and `src/lib/` (content helpers). Every
 localized content field needs `de`, `fr` and `en`.
+`src/components/Testimonial.astro` is the shared testimonial component (props: one
+entry from `getTestimonials`); page-specific components live in
+`src/components/<page>/`.
 
 ## Setup
 

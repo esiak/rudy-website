@@ -6,10 +6,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
   return locales.flatMap((locale) =>
-    (Object.keys(routes) as PageKey[]).map((pageKey) => ({
-      params: { locale, slug: routes[pageKey][locale] || undefined },
-      props: { locale, pageKey },
-    })),
+    (Object.keys(routes) as PageKey[])
+      .filter((pageKey) => pageKey !== 'about')
+      .map((pageKey) => ({
+        params: { locale, slug: routes[pageKey][locale] || undefined },
+        props: { locale, pageKey },
+      })),
   );
 }
 
