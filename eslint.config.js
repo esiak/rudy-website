@@ -1,0 +1,20 @@
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import astro from 'eslint-plugin-astro';
+
+export default [
+  {
+    ignores: [
+      'dist/',
+      '.astro/',
+      'node_modules/',
+      'test-results/',
+      'playwright-report/',
+      'blob-report/',
+      'playwright/.cache/',
+    ],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...astro.configs.recommended,
+];

@@ -1,27 +1,34 @@
 # rudy-website
 
-A website. The repo is at an early stage: no framework or toolchain has been
-chosen yet. Update this file when one is.
+A website built with Astro (static output, `output: 'static'`), TypeScript
+(`strict`), npm, ESLint + Prettier, Vitest for logic and Playwright for smoke
+tests of the built site.
+
+Key paths: `src/pages/` (routes), `e2e/` (Playwright specs), `astro.config.mjs`,
+`tsconfig.json`, `eslint.config.js`, `.prettierrc`, `vitest.config.ts`,
+`playwright.config.ts`.
 
 ## Setup
 
-A fresh checkout needs nothing yet. Once the site has a `package.json`, install
-with the package manager its lockfile belongs to (`npm ci`, `pnpm install
---frozen-lockfile` or `yarn install --frozen-lockfile`), and list any env files
-to copy here (for example `cp .env.example .env`).
+`npm ci`. No env files needed.
 
 ## Dev server
 
-None yet. When one exists, document how to start it on a given port, e.g.
-`npm run dev -- --port <port>`. Factory reviewers start it on the port their
-prompt gives them.
+`npm run dev -- --port <port>`
 
 ## Validation
 
-Run `bash factory/checks.sh`. It installs dependencies and runs the `lint`,
-`typecheck`, `test` and `build` scripts that `package.json` defines, and
-passes while there is no `package.json`. Keep this section and that script in
-step.
+Run `bash factory/checks.sh`. It runs `npm ci`, then `lint`, `typecheck`,
+`test` and `build`:
+
+- `npm run lint`: `eslint .` and `prettier --check .`.
+- `npm run typecheck`: `astro check`.
+- `npm test`: `vitest run` (unit tests in `src/**/*.test.ts`), then installs the
+  Playwright Chromium browser itself and runs `playwright test`, which builds
+  and serves the site and runs the specs in `e2e/`.
+- `npm run build`: `astro build` into `dist/`.
+
+Keep this section and that script in step.
 
 ## Software factory
 
