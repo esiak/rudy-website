@@ -36,6 +36,17 @@ const services = defineCollection({
     }),
 });
 
+const servicesPage = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/services-page' }),
+  schema: z.object({
+    intro: z.array(localized),
+    talk: localized,
+    button: localized,
+    sections: z.array(z.object({ title: localized, text: localized })),
+    closing: z.object({ title: localized, text: localized }),
+  }),
+});
+
 const testimonials = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/testimonials' }),
   schema: ({ image }) =>
@@ -48,4 +59,9 @@ const testimonials = defineCollection({
     }),
 });
 
-export const collections = { references, services, testimonials };
+export const collections = {
+  references,
+  services,
+  servicesPage,
+  testimonials,
+};
