@@ -13,6 +13,9 @@
   /* Darker than the live site's #fdae00 so the current menu item meets WCAG AA. */
   --color-menu-current: #a86b00;
   --color-menu-current-bg: #f9fafd;
+  --color-photo-overlay-base: #424242;
+  /* The live site uses 41%; 60% keeps the white text at WCAG AA over the photo. */
+  --color-photo-overlay: rgb(66 66 66 / 60%);
   --font-heading: Verdana, Helvetica, Arial, sans-serif;
   --font-body: Poppins, sans-serif;
   --radius: 3px;

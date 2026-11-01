@@ -1,11 +1,16 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
 interface Props {
-  variant: 'primary' | 'white' | 'grey';
+  variant: 'primary' | 'white' | 'grey' | 'photo';
   id: string;
   heading?: string;
+  /** Background photo for the `photo` variant. Decorative, so it has no alt text. */
+  image?: ImageMetadata;
 }
 
-const { variant, id, heading } = Astro.props;
+const { variant, id, heading, image } = Astro.props;
 ---
 
 <section
@@ -13,6 +18,16 @@ const { variant, id, heading } = Astro.props;
   data-section={id}
   aria-labelledby={heading ? `${id}-heading` : undefined}
 >
+  {variant === 'photo' && image && (
+    <Image
+      class="band__photo"
+      src={image}
+      alt=""
+      widths={[480, 840]}
+      sizes="100vw"
+      loading="lazy"
+    />
+  )}
   <div class="container band__inner">
     <slot />
   </div>
@@ -35,6 +50,60 @@ const { variant, id, heading } = Astro.props;
   .band--grey {
     background: var(--color-surface-alt);
   }
+
+  /* A photo behind the content with a dark overlay, like the live site's
+     closing section. The photo is an <img> (not a CSS background) so the
+     strict CSP needs no inline style. */
+  .band--photo {
+    align-items: center;
+    background: var(--color-photo-overlay-base);
+    color: var(--color-surface);
+    display: flex;
+    /* Same height as the live site's section: 49% of the window on tablets
+       and phones, 60.39% on wider screens (see the media query below). */
+    min-height: 49vh;
+    padding-block: 2.5rem;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    /* Keeps the white text crisp over small bright spots in the photo. */
+    text-shadow: 0 1px 3px rgb(0 0 0 / 60%);
+  }
+  @media (min-width: 1025px) {
+    .band--photo {
+      min-height: 60.39vh;
+    }
+  }
+  .band--photo :global(a.button) {
+    text-shadow: none;
+  }
+  .band--photo::before {
+    background: var(--color-photo-overlay);
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+  .band__photo {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    object-position: 50% 0;
+    position: absolute;
+    width: 100%;
+  }
+  .band--photo .band__inner {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+  .band--photo :global(h2) {
+    color: var(--color-surface);
+  }
+  .band--photo :global(:focus-visible) {
+    outline-color: var(--color-surface);
+  }
+
   .band__inner > :global(p) {
     margin-block-end: var(--space-3);
   }

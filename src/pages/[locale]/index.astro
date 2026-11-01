@@ -10,6 +10,7 @@ import { getLocalizedPath, locales } from '../../i18n/routes';
 import type { Locale } from '../../i18n/routes';
 import { t } from '../../i18n/ui';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import closingPhoto from '../../assets/24220_036-Hintergrund-freigestellt-H600.jpg';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
@@ -49,7 +50,12 @@ const contactPath = getLocalizedPath('contact', locale);
   </HomeSection>
   <HomeServices locale={locale} />
   <HomeTestimonials locale={locale} />
-  <HomeSection variant="white" id="closing" heading={copy.closingLine}>
+  <HomeSection
+    variant="photo"
+    image={closingPhoto}
+    id="closing"
+    heading={copy.closingLine}
+  >
     <h2 id="closing-heading">{copy.closingLine}</h2>
     <p>{copy.signature}</p>
     <HomeButton variant="accent" href={contactPath}>
