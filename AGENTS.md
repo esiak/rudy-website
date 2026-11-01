@@ -6,7 +6,7 @@ tests of the built site.
 
 Key paths: `src/pages/` (routes), `e2e/` (Playwright specs), `astro.config.mjs`,
 `tsconfig.json`, `eslint.config.js`, `.prettierrc`, `vitest.config.ts`,
-`playwright.config.ts`.
+`playwright.config.ts`, `netlify.toml`, `.nvmrc`, `src/netlify-config.test.ts`.
 
 ## Setup
 
@@ -29,6 +29,14 @@ Run `bash factory/checks.sh`. It runs `npm ci`, then `lint`, `typecheck`,
 - `npm run build`: `astro build` into `dist/`.
 
 Keep this section and that script in step.
+
+## Deploy
+
+Netlify builds from `netlify.toml`. The Node version is pinned in `.nvmrc`,
+`netlify.toml` (`NODE_VERSION`) and `package.json` `engines`; keep them in
+step. The redirects mirror `docs/rebuild-spec.md`. The CSP forbids inline
+scripts and styles, so keep `inlineStylesheets: 'never'` in `astro.config.mjs`
+and add no inline `<script>`, `<style>` or `style` attributes.
 
 ## Software factory
 
