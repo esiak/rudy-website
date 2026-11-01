@@ -1,0 +1,122 @@
+{
+  "intro": [
+    {
+      "de": "Als erfahrener Data Scientist und Berater biete ich eine breite Palette an Dienstleistungen, die auf fundiertem Wissen und langjähriger Erfahrung basieren. Hier ein Überblick über meine Kernkompetenzen und die Chancen, die sich daraus ergeben.",
+      "fr": "En tant que Data Scientist et consultant expérimenté, j’offre une large gamme de services basés sur des connaissances approfondies et une longue expérience. Voici un aperçu de mes compétences principales et des opportunités qui en découlent.",
+      "en": "As an experienced Data Scientist and consultant, I offer a wide range of services based on in-depth knowledge and extensive experience. Here is an overview of my core competencies and the opportunities that arise from them."
+    },
+    {
+      "de": "Ich freue mich darauf, Ihre Datenherausforderungen gemeinsam zu bewältigen und innovative Lösungen zu finden. Kontaktieren Sie mich gerne, um mehr über meine Dienstleistungen zu erfahren.",
+      "fr": "Je me réjouis de relever vos défis liés aux données ensemble et de trouver des solutions innovantes. N’hésitez pas à me contacter pour en savoir plus sur mes services.",
+      "en": "I look forward to tackling your data challenges together and finding innovative solutions. Feel free to contact me to learn more about my service."
+    }
+  ],
+  "talk": {
+    "de": "Lassen Sie uns reden!",
+    "fr": "Parlons-en",
+    "en": "Let us talk"
+  },
+  "button": {
+    "de": "Jetzt kontaktieren",
+    "fr": "Contactez-moi",
+    "en": "Contact now"
+  },
+  "sections": [
+    {
+      "title": {
+        "de": "Programmierung und Datenanalyse mit R",
+        "fr": "Programmation R et Analyse de Données",
+        "en": "R Programming and Data Analysis"
+      },
+      "text": {
+        "de": "Mit einem Doktortitel in angewandter Mathematik und rund zehn Jahren Erfahrung in der Datenwissenschaft und Programmierung mit R kann ich präzise statistische Modellierungen und Datenanalysen durchführen. Diese Fähigkeiten ermöglichen es mir, effizient Daten zu verarbeiten und zu analysieren, um maßgeschneiderte Lösungen zu entwickeln.",
+        "fr": "Avec un doctorat en mathématiques appliquées et environ dix ans d’expérience en science des données et programmation avec R, je peux réaliser des modélisations statistiques précises et des analyses de données. Ces compétences me permettent de traiter et d’analyser les données de manière efficace pour développer des solutions sur mesure.",
+        "en": "With a PhD in Applied Mathematics and about ten years of experience in data science and R programming, I can perform precise statistical modeling and data analysis. These skills enable me to efficiently process and analyze data to develop tailored solutions."
+      }
+    },
+    {
+      "title": {
+        "de": "Entwicklung interaktiver Shiny-Apps",
+        "fr": "Développement d'Applications Interactives avec Shiny",
+        "en": "Development of Interactive Shiny Apps"
+      },
+      "text": {
+        "de": "Ich erstelle interaktive Webanwendungen mit Shiny, die dynamische Datenvisualisierungen und Echtzeitanalysen ermöglichen. Diese Tools sind benutzerfreundlich und unterstützen dabei, komplexe Daten verständlich darzustellen und Entscheidungen zu treffen.",
+        "fr": "Je crée des applications web interactives utilisant Shiny, facilitant la visualisation dynamique des données et l’analyse en temps réel. Ces outils sont conviviaux et aident à présenter des données complexes de manière compréhensible pour la prise de décisions.",
+        "en": "I create interactive web applications using Shiny, facilitating dynamic data visualization and real-time analysis. These tools are user-friendly and help in comprehensively presenting complex data for decision-making."
+      }
+    },
+    {
+      "title": {
+        "de": "SQL-Datenmanagement",
+        "fr": "Gestion des Données SQL",
+        "en": "SQL Data Management"
+      },
+      "text": {
+        "de": "Ich biete umfassende SQL-Programmierungs- und Datenanalysedienste an, die sich auf die effiziente Verwaltung und Optimierung von Datenbanken konzentrieren. Meine Lösungen verbessern die Datenintegrität und vereinfachen die ETL-Prozesse, was zu einer schnelleren und zuverlässigeren Datenverarbeitung führt.",
+        "fr": "Je propose des services complets de programmation et d’analyse de données SQL, axés sur la gestion efficace et l’optimisation des bases de données. Mes solutions améliorent l’intégrité des données et simplifient les processus ETL, conduisant à un traitement des données plus rapide et plus fiable.",
+        "en": "I provide comprehensive SQL programming and data analysis services focused on efficient database management and query optimization. My solutions improve data integrity and streamline ETL processes, leading to faster and more reliable data processing."
+      }
+    },
+    {
+      "title": {
+        "de": "Automatisierung und Visualisierung von Geschäftsprozessen",
+        "fr": "Automatisation et Visualisation des Processus d'Affaires",
+        "en": "Automation and Visualization of Business Processes"
+      },
+      "text": {
+        "de": "Durch die Entwicklung automatisierter Prozesse reduziere ich Fehler und den Zeitaufwand bei der Datenverarbeitung erheblich. Die Visualisierung von Leistungskennzahlen auf Dashboards erleichtert das Nachverfolgen und Steuern Ihrer Geschäftsziele.",
+        "fr": "En développant des processus automatisés, je réduis considérablement les erreurs et le temps consacré au traitement des données. La visualisation des indicateurs de performance sur des tableaux de bord facilite le suivi et la gestion de vos objectifs commerciaux.",
+        "en": "By developing automated processes, I significantly reduce errors and the time spent on data processing. Visualizing key performance indicators on dashboards makes it easier to track and manage your business goals."
+      }
+    },
+    {
+      "title": {
+        "de": "Vorhersage- und Frühwarnsysteme",
+        "fr": "Systèmes de Prévision et d'Alerte Précoce",
+        "en": "Forecasting and Early Warning Systems"
+      },
+      "text": {
+        "de": "Ich implementiere fortschrittliche Modelle zur Vorhersage von Geschäftskennzahlen und zur Erkennung von Anomalien, wie z.B. in Garantie- und Verkaufssystemen. Diese Systeme helfen Ihnen, proaktiv auf Veränderungen zu reagieren und Ihre Ressourcen optimal zu nutzen.",
+        "fr": "J’implémente des modèles avancés pour la prévision des indicateurs commerciaux et la détection des anomalies, par exemple dans les systèmes de garantie et de vente. Ces systèmes vous aident à réagir de manière proactive aux changements et à optimiser l’utilisation des ressources.",
+        "en": "I implement advanced models for forecasting business metrics and detecting anomalies, such as in warranty and sales systems. These systems help you proactively respond to changes and optimize resource allocation."
+      }
+    },
+    {
+      "title": {
+        "de": "ETL-Lösungen",
+        "fr": "Solution ETL",
+        "en": "ETL Solutions"
+      },
+      "text": {
+        "de": "Für die Datenintegration biete ich spezialisierte ETL-Lösungen an, die die Extraktion, Transformation und das Laden von Daten effizient gestalten. Die von mir entwickelten benutzerfreundlichen Tools können auch von nicht-technischen Mitarbeitern leicht bedient werden.",
+        "fr": "Pour l’intégration des données, j’offre des solutions ETL spécialisées qui gèrent efficacement l’extraction, la transformation et le chargement des données. Les outils que je développe sont conviviaux et peuvent être facilement utilisés par le personnel non technique.",
+        "en": "For data integration, I offer specialized ETL solutions that efficiently handle data extraction, transformation, and loading. The tools I develop are user-friendly and can be easily operated by non-technical staff."
+      }
+    },
+    {
+      "title": {
+        "de": "Chancen für die Zukunft",
+        "fr": "Opportunités pour l'Avenir",
+        "en": "Future Opportunities"
+      },
+      "text": {
+        "de": "Durch meine aktuelle Zusammenarbeit mit Munich Re beispielsweise, einem führenden Rückversicherer, habe ich die Möglichkeit, mich auf Mathematik und KI im Versicherungswesen zu spezialisieren. Dies könnte den Weg zu einer Spezialisierung im Bankwesen ebnen. Zudem habe ich Erfahrung in der Chemiebranche, was mir die Möglichkeit bietet, Mathematik und KI in der Chemie- und Verfahrenstechnik anzuwenden.",
+        "fr": "Grâce à ma collaboration actuelle avec Munich Re, un leader de la réassurance, j’ai l’opportunité de me spécialiser dans les mathématiques et l’IA appliquées à l’assurance. Cela pourrait ouvrir la voie à une spécialisation dans le secteur bancaire. De plus, ayant de l’expérience dans le domaine de la chimie, je peux appliquer les mathématiques et l’IA dans la chimie et le génie chimique.",
+        "en": "Through my current collaboration e.g. with Munich Re, a leading reinsurer, I have the opportunity to specialize in mathematics and AI applied to insurance. This could pave the way for a specialization in the banking sector as well. Additionally, having experience in the chemistry industry, I can apply mathematics and AI in chemistry and chemical engineering."
+      }
+    }
+  ],
+  "closing": {
+    "title": {
+      "de": "Lassen Sie uns reden!",
+      "fr": "Parlons-en.",
+      "en": "Let us talk"
+    },
+    "text": {
+      "de": "Ich freue mich auf das Gespräch mit Ihnen und neue Aufgaben zu entdecken. Lassen Sie uns gemeinsam tolle Lösungen finden.",
+      "fr": "Je me réjouis de discuter avec vous et de découvrir de nouvelles tâches. Trouvons ensemble des solutions formidables.",
+      "en": "I look forward to our conversation and discovering new tasks. Let’s find great solutions together."
+    }
+  }
+}

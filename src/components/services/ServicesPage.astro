@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+import { getLocalizedPath } from '../../i18n/routes';
+import type { Locale } from '../../i18n/routes';
+import { t } from '../../i18n/ui';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import portrait from '../../assets/24220_024-Kopie.jpg';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const page = (await getEntry('servicesPage', 'page'))!.data;
+const label = t(locale, 'nav.services');
+const contactPath = getLocalizedPath('contact', locale);
+---
+
+<BaseLayout
+  locale={locale}
+  pageKey="services"
+  title={`${label} | Dr. Rudy Pastel`}
+>
+  <h1>{label}</h1>
+  <div class="services-intro">
+    <Image
+      src={portrait}
+      width={350}
+      height={457}
+      alt="Dr. Rudy Pastel – Data Scientist"
+    />
+    <div>
+      {page.intro.map((text) => (
+        <p>{text[locale]}</p>
+      ))}
+      <p>
+        {page.talk[locale]}{' '}
+        <a href="mailto:pastel.web@rudypastel.com">pastel.web@rudypastel.com</a>
+      </p>
+      <a class="button" href={contactPath}>
+        {page.button[locale]}
+      </a>
+    </div>
+  </div>
+  {page.sections.map((section) => (
+    <section>
+      <h2>{section.title[locale]}</h2>
+      <p>{section.text[locale]}</p>
+    </section>
+  ))}
+  <section>
+    <h2>{page.closing.title[locale]}</h2>
+    <p>{page.closing.text[locale]}</p>
+    <a class="button" href={contactPath}>
+      {page.button[locale]}
+    </a>
+  </section>
+</BaseLayout>
+
+<style>
+  .services-intro {
+    display: grid;
+    gap: var(--space-4);
+    margin-block-end: var(--space-5);
+  }
+  .services-intro img {
+    max-width: 100%;
+    height: auto;
+  }
+  @media (min-width: 768px) {
+    .services-intro {
+      grid-template-columns: auto 1fr;
+      align-items: start;
+    }
+  }
+  .services-intro p,
+  section p {
+    margin-block-end: var(--space-3);
+  }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--space-2) var(--space-4);
+    max-width: 100%;
+    text-align: center;
+    background: var(--color-accent);
+    color: var(--color-header);
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  section {
+    margin-block-end: var(--space-5);
+  }
+</style>
