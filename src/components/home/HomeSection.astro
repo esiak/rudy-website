@@ -26,6 +26,9 @@ const { variant, id, heading } = Astro.props;
     background: var(--color-primary);
     color: var(--color-surface);
   }
+  .band--primary :global(:focus-visible) {
+    outline-color: var(--color-surface);
+  }
   .band--white {
     background: var(--color-surface);
   }

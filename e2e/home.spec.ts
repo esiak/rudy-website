@@ -73,6 +73,26 @@ for (const { locale, contact, about } of pages) {
       ).toHaveAttribute('href', path);
     });
 
+    test('button focus outline contrasts with the section background', async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const buttons = page.locator('main a.button');
+      const count = await buttons.count();
+      expect(count).toBe(4);
+      for (let i = 0; i < count; i++) {
+        const button = buttons.nth(i);
+        await button.focus();
+        await page.keyboard.press('Shift+Tab');
+        await page.keyboard.press('Tab');
+        const { outline, background } = await button.evaluate((el) => ({
+          outline: getComputedStyle(el).outlineColor,
+          background: getComputedStyle(el.closest('section')!).backgroundColor,
+        }));
+        expect(outline).not.toBe(background);
+      }
+    });
+
     for (const width of [375, 768, 1280]) {
       test(`has no horizontal overflow at ${width}px`, async ({ page }) => {
         await page.setViewportSize({ width, height: 800 });
