@@ -1,0 +1,11 @@
+{
+  "client": "Volkswagen Data Lab Munich",
+  "start": "2014-09",
+  "end": "2017-04",
+  "description": {
+    "de": "Entwicklung von Prototypen für Geschäftslösungen, einschließlich Zeitreihenprognosen und Anomalieerkennung. Diese Prototypen wurden verwendet, um innovative Ansätze zur Verbesserung der Geschäftsprozesse zu testen und zu validieren. Dazu gehörte die Zusammenarbeit mit verschiedenen Abteilungen, um sicherzustellen, dass die Lösungen den tatsächlichen Geschäftsanforderungen entsprachen.",
+    "fr": "Développement de prototypes de solutions commerciales, y compris la prévision de séries temporelles et la détection d’anomalies. Ces prototypes ont été utilisés pour tester et valider des approches innovantes visant à améliorer les processus commerciaux. Cela impliquait une collaboration avec divers départements pour s’assurer que les solutions répondaient aux besoins commerciaux réels.",
+    "en": "Development of prototypes for business solutions, including time series forecasting and anomaly detection. These prototypes were used to test and validate innovative approaches to improving business processes. This involved collaboration with various departments to ensure the solutions met actual business needs."
+  },
+  "order": 10
+}

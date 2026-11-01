@@ -1,0 +1,11 @@
+{
+  "quote": {
+    "de": "Ich empfehle Rudy ohne zu zögern. Er ist nicht nur ein talentierter Programmierer, sondern auch eine fantastische Person, die diejenigen, mit denen er arbeitet, positiv beeinflusst.",
+    "fr": "Je recommande vivement Rudy sans hésitation. Non seulement c’est un programmeur talentueux, mais c’est aussi une personne fantastique qui influence positivement ceux avec qui il travaille.",
+    "en": "I highly recommend Rudy without hesitation. He is not only a talented coder but also a fantastic individual who positively impacts those he works with."
+  },
+  "authorName": "Dr. Sebastian Kaiser",
+  "authorRole": "Head of Machine Learning @ ERGO, Trainer, Lecturer",
+  "photo": "../../assets/sebastiankaiser-336x336-1.jpg",
+  "order": 1
+}

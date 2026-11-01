@@ -1,0 +1,11 @@
+{
+  "client": "Symrise AG",
+  "start": "2019-12",
+  "end": "2020-01",
+  "description": {
+    "de": "Entwicklung eines datengesteuerten Replikators für chemische Verbindungen, eingebettet in ein Dashboard. Dieses Tool ermöglichte es den Chemikern, die Eigenschaften von Verbindungen präzise vorherzusagen und zu optimieren. Es wurde eine benutzerfreundliche Oberfläche geschaffen, die komplexe Berechnungen zugänglich machte.",
+    "fr": "Développement d’un réplicateur de composés chimiques basé sur les données, intégré dans un tableau de bord. Cet outil permettait aux chimistes de prédire et d’optimiser avec précision les propriétés des composés. Une interface conviviale a été créée pour rendre accessibles les calculs complexes.",
+    "en": "Development of a data-driven replicator for chemical compounds, embedded in a dashboard. This tool allowed chemists to accurately predict and optimize the properties of compounds. A user-friendly interface was created to make complex calculations accessible."
+  },
+  "order": 8
+}

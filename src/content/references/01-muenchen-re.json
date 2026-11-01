@@ -1,0 +1,11 @@
+{
+  "client": "München RE",
+  "start": "2023-06",
+  "end": "ongoing",
+  "description": {
+    "de": "Migration des gesamten Code-Basis von R 3.6.3 zu R 4.3.1. Dies umfasste die Aktualisierung und Überprüfung sämtlicher Abhängigkeiten, Tests und Dokumentationen. Das Projekt stellte sicher, dass alle internen und externen Skripte weiterhin nahtlos funktionieren.",
+    "fr": "Migration de l’ensemble de la base de code de R 3.6.3 à R 4.3.1. Cela incluait la mise à jour et la vérification de toutes les dépendances, tests et documentations. Le projet a assuré que tous les scripts internes et externes continuent de fonctionner sans problème.",
+    "en": "Migration of the entire codebase from R 3.6.3 to R 4.3.1. This included updating and verifying all dependencies, tests, and documentation. The project ensured that all internal and external scripts continued to function seamlessly."
+  },
+  "order": 1
+}

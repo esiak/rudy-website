@@ -1,0 +1,11 @@
+{
+  "client": "Lowell Financial Services GmbH",
+  "start": "2018-05",
+  "end": "2018-09",
+  "description": {
+    "de": "Entwicklung eines Modells zur Prognose der Schuldeneintreibung, eingebettet in ein Dashboard. Das Modell ermöglichte es, zukünftige Zahlungseingänge präzise vorherzusagen und die Ressourcenzuweisung zu optimieren. Das Dashboard bot Echtzeit-Visualisierungen und interaktive Analysen zur Unterstützung der Entscheidungsfindung.",
+    "fr": "Développement d’un modèle pour prédire le recouvrement des créances, intégré dans un tableau de bord. Le modèle permettait de prévoir avec précision les paiements futurs et d’optimiser l’allocation des ressources. Le tableau de bord fournissait des visualisations en temps réel et des analyses interactives pour soutenir la prise de décision.",
+    "en": "Development of a model to predict debt collection, embedded in a dashboard. The model enabled accurate forecasting of future payments and optimized resource allocation. The dashboard provided real-time visualizations and interactive analyses to support decision-making."
+  },
+  "order": 9
+}
