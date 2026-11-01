@@ -1,0 +1,145 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../../assets/24220_024-Kopie.jpg';
+import { getLocalizedPath } from '../../i18n/routes';
+import type { Locale } from '../../i18n/routes';
+import { t } from '../../i18n/ui';
+import { getTestimonials } from '../../lib/content';
+import Testimonial from '../Testimonial.astro';
+import { aboutCopy } from './copy';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = aboutCopy[locale];
+const contactPath = getLocalizedPath('contact', locale);
+const testimonials = await getTestimonials(locale);
+---
+
+<h1>{t(locale, 'nav.about')}</h1>
+
+<section class="intro">
+  <Image
+    class="intro__portrait"
+    src={portrait}
+    alt="Dr. Rudy Pastel – Data Scientist"
+    width={350}
+    height={457}
+  />
+  <div>
+    <h2>{copy.passionHeading}</h2>
+    <p>{copy.intro}</p>
+    <h3>{copy.talk}</h3>
+    <p>
+      <a href="mailto:pastel.web@rudypastel.com">pastel.web@rudypastel.com</a>
+    </p>
+    <a class="button" href={contactPath}>
+      {copy.contactLabel}
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2>{copy.educationHeading}</h2>
+  <p>{copy.education}</p>
+</section>
+
+<section>
+  <h2>{copy.personalHeading}</h2>
+  {copy.personal.map((text) => (
+    <p>{text}</p>
+  ))}
+</section>
+
+<section>
+  <h2>{copy.skillsHeading}</h2>
+  {copy.skills.map((text) => (
+    <p>{text}</p>
+  ))}
+  <a class="button" href={contactPath}>
+    {copy.cvLabel}
+  </a>
+</section>
+
+<section>
+  <h2>{copy.expertiseHeading}</h2>
+  <ul>
+    {copy.expertise.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+</section>
+
+<section>
+  <h2>{copy.languagesHeading}</h2>
+  <ul>
+    {copy.languages.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+</section>
+
+<section>
+  <h2>{copy.testimonialsHeading}</h2>
+  <p>{copy.testimonialsLead}</p>
+  {testimonials.map((testimonial) => (
+    <Testimonial {...testimonial} />
+  ))}
+</section>
+
+<section>
+  <h2>{copy.closingHeading}</h2>
+  <p>{copy.closing}</p>
+  <a class="button" href={contactPath}>
+    {copy.contactLabel}
+  </a>
+</section>
+
+<style>
+  section {
+    margin-block: var(--space-6);
+  }
+
+  p {
+    margin-block-end: var(--space-3);
+  }
+
+  ul {
+    padding-inline-start: var(--space-4);
+  }
+
+  .intro {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .intro__portrait {
+    border-radius: var(--radius);
+    height: auto;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  @media (min-width: 768px) {
+    .intro {
+      align-items: start;
+      grid-template-columns: 350px 1fr;
+    }
+  }
+
+  .button {
+    background: var(--color-primary);
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    display: inline-block;
+    font-weight: 600;
+    padding: var(--space-2) var(--space-4);
+    text-decoration: none;
+  }
+
+  .button:hover {
+    background: var(--color-navy);
+  }
+</style>
