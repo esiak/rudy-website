@@ -20,24 +20,6 @@ const alternates = pageKey
     <a class="site-header__title" href={getLocalizedPath('home', locale)}>
       Dr. Rudy Pastel – Data Scientist
     </a>
-    <ul class="lang-switcher" aria-label={t(locale, 'a11y.language')}>
-      {locales.map((code) => {
-        const alt = alternates.find((a) => a.locale === code);
-        return (
-          <li>
-            {alt ? (
-              <a href={alt.path} lang={code} hreflang={code}>
-                {code.toUpperCase()}
-              </a>
-            ) : (
-              <span lang={code} aria-current="true">
-                {code.toUpperCase()}
-              </span>
-            )}
-          </li>
-        );
-      })}
-    </ul>
     <button
       type="button"
       class="menu-button"
@@ -60,6 +42,24 @@ const alternates = pageKey
         ))}
       </ul>
     </nav>
+    <ul class="lang-switcher" aria-label={t(locale, 'a11y.language')}>
+      {locales.map((code) => {
+        const alt = alternates.find((a) => a.locale === code);
+        return (
+          <li>
+            {alt ? (
+              <a href={alt.path} lang={code} hreflang={code}>
+                {code.toUpperCase()}
+              </a>
+            ) : (
+              <span lang={code} aria-current="true">
+                {code.toUpperCase()}
+              </span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
   </div>
 </header>
 
@@ -94,12 +94,12 @@ const alternates = pageKey
 <style>
   .site-header {
     background: var(--color-header);
-    color: #fff;
+    color: var(--color-surface);
   }
 
   .site-header a,
   .site-header span {
-    color: #fff;
+    color: var(--color-surface);
   }
 
   .site-header :focus-visible {
@@ -129,14 +129,23 @@ const alternates = pageKey
     padding: 0;
   }
 
-  .lang-switcher [aria-current='true'] {
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 6px;
+  .lang-switcher a,
+  .lang-switcher span {
+    display: inline-block;
+    padding-block: var(--space-2);
   }
 
-  .site-nav {
-    order: -1;
+  .lang-switcher a {
+    text-decoration: none;
+  }
+
+  .lang-switcher a:hover {
+    text-decoration: underline;
+  }
+
+  .lang-switcher [aria-current='true'] {
+    text-decoration: underline;
+    text-underline-offset: 6px;
   }
 
   .site-nav__list a {
@@ -150,16 +159,15 @@ const alternates = pageKey
   }
 
   .site-nav__list a[aria-current='page'] {
-    font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 6px;
   }
 
   .menu-button {
     background: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--color-surface);
     border-radius: var(--radius);
-    color: #fff;
+    color: var(--color-surface);
     cursor: pointer;
     display: none;
     font: inherit;
@@ -171,9 +179,17 @@ const alternates = pageKey
   }
 
   @media (max-width: 767px) {
+    .lang-switcher {
+      order: 1;
+    }
+
+    .menu-button {
+      order: 2;
+    }
+
     .site-nav {
       flex-basis: 100%;
-      order: 1;
+      order: 3;
     }
 
     .site-nav__list {
@@ -191,10 +207,6 @@ const alternates = pageKey
   @media (min-width: 768px) {
     :global(.js) .menu-button {
       display: none;
-    }
-
-    .site-nav {
-      order: 0;
     }
   }
 </style>
