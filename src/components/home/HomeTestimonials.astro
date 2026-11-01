@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import { home } from '../../i18n/home';
+import type { Locale } from '../../i18n/routes';
+import { getTestimonials } from '../../lib/content';
+import HomeSection from './HomeSection.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = home[locale];
+const testimonials = await getTestimonials(locale);
+---
+
+<HomeSection
+  variant="grey"
+  id="testimonials"
+  heading={copy.testimonialsHeading}
+>
+  <h2 id="testimonials-heading">{copy.testimonialsHeading}</h2>
+  <p>{copy.testimonialsIntro}</p>
+  {testimonials.map((testimonial) => (
+    <figure class="testimonial">
+      <Image
+        src={testimonial.photo}
+        alt={testimonial.authorName}
+        width={112}
+        height={112}
+        loading="lazy"
+      />
+      <div>
+        <blockquote>{testimonial.quote}</blockquote>
+        <figcaption>
+          <strong>{testimonial.authorName}</strong>
+          <span>{testimonial.authorRole}</span>
+        </figcaption>
+      </div>
+    </figure>
+  ))}
+</HomeSection>
+
+<style>
+  .testimonial {
+    align-items: center;
+    display: grid;
+    gap: var(--space-4);
+    margin-block-start: var(--space-4);
+  }
+  .testimonial img {
+    border-radius: 50%;
+    height: 112px;
+    width: 112px;
+  }
+  blockquote {
+    font-style: italic;
+    margin-block-end: var(--space-3);
+  }
+  figcaption {
+    display: grid;
+  }
+  @media (min-width: 768px) {
+    .testimonial {
+      grid-template-columns: auto 1fr;
+    }
+  }
+</style>

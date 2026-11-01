@@ -1,0 +1,59 @@
+---
+import HomeButton from '../../components/home/HomeButton.astro';
+import HomeHero from '../../components/home/HomeHero.astro';
+import HomeReferences from '../../components/home/HomeReferences.astro';
+import HomeSection from '../../components/home/HomeSection.astro';
+import HomeServices from '../../components/home/HomeServices.astro';
+import HomeTestimonials from '../../components/home/HomeTestimonials.astro';
+import { home } from '../../i18n/home';
+import { getLocalizedPath, locales } from '../../i18n/routes';
+import type { Locale } from '../../i18n/routes';
+import { t } from '../../i18n/ui';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = home[locale];
+const contactPath = getLocalizedPath('contact', locale);
+---
+
+<BaseLayout
+  locale={locale}
+  pageKey="home"
+  title={`${t(locale, 'nav.home')} | Dr. Rudy Pastel`}
+  description={copy.description}
+  fullWidth
+>
+  <HomeHero locale={locale} />
+  <HomeSection variant="white" id="partner" heading={copy.partnerHeading}>
+    <h2 id="partner-heading">{copy.partnerHeading}</h2>
+    <p>{copy.partnerText}</p>
+  </HomeSection>
+  <HomeReferences locale={locale} />
+  <HomeSection variant="white" id="example" heading={copy.exampleHeading}>
+    <h2 id="example-heading">{copy.exampleHeading}</h2>
+    <h3>{copy.exampleSubheading}</h3>
+    <p>{copy.exampleText1}</p>
+    <p>{copy.exampleText2}</p>
+    <p>{copy.exampleText3}</p>
+    <HomeButton variant="accent" href={contactPath}>
+      {t(locale, 'button.contactMe')}
+    </HomeButton>
+  </HomeSection>
+  <HomeServices locale={locale} />
+  <HomeTestimonials locale={locale} />
+  <HomeSection variant="white" id="closing" heading={copy.closingLine}>
+    <h2 id="closing-heading">{copy.closingLine}</h2>
+    <p>{copy.signature}</p>
+    <HomeButton variant="accent" href={contactPath}>
+      {t(locale, 'button.contactMe')}
+    </HomeButton>
+  </HomeSection>
+</BaseLayout>
