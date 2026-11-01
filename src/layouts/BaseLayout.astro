@@ -10,9 +10,10 @@ interface Props {
   title: string;
   description?: string;
   pageKey?: PageKey;
+  fullWidth?: boolean;
 }
 
-const { locale, title, description, pageKey } = Astro.props;
+const { locale, title, description, pageKey, fullWidth = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,7 +29,7 @@ const { locale, title, description, pageKey } = Astro.props;
       {t(locale, 'a11y.skip')}
     </a>
     <Header locale={locale} pageKey={pageKey} />
-    <main id="content" class="container">
+    <main id="content" class:list={{ container: !fullWidth, full: fullWidth }}>
       <slot />
     </main>
     <Footer locale={locale} />
@@ -59,5 +60,9 @@ const { locale, title, description, pageKey } = Astro.props;
   main {
     min-height: 60vh;
     padding-block: var(--space-5);
+  }
+
+  main.full {
+    padding-block: 0;
   }
 </style>

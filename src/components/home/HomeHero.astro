@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../../assets/24220_012-H600.jpg';
+import { home } from '../../i18n/home';
+import { getLocalizedPath } from '../../i18n/routes';
+import type { Locale } from '../../i18n/routes';
+import { t } from '../../i18n/ui';
+import HomeButton from './HomeButton.astro';
+import HomeSection from './HomeSection.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = home[locale];
+---
+
+<HomeSection variant="primary" id="hero">
+  <div class="hero">
+    <div class="hero__text">
+      <h1>{copy.name}</h1>
+      <p class="hero__tagline">{copy.tagline}</p>
+      <p>{copy.qualification}</p>
+      <div class="hero__actions">
+        <HomeButton variant="accent" href={getLocalizedPath('contact', locale)}>
+          {t(locale, 'button.contactMe')}
+        </HomeButton>
+        <HomeButton variant="navy" href={getLocalizedPath('about', locale)}>
+          {t(locale, 'button.moreInfo')}
+        </HomeButton>
+      </div>
+    </div>
+    <Image
+      src={portrait}
+      alt={copy.portraitAlt}
+      width={449}
+      height={600}
+      widths={[300, 449]}
+      sizes="(min-width: 768px) 300px, 70vw"
+      loading="eager"
+    />
+  </div>
+</HomeSection>
+
+<style>
+  .hero {
+    align-items: center;
+    display: grid;
+    gap: var(--space-5);
+  }
+  .hero img {
+    border-radius: var(--radius);
+    height: auto;
+    max-width: 300px;
+    width: 70%;
+  }
+  .hero__tagline {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    margin-block-end: var(--space-2);
+  }
+  .hero__text p {
+    margin-block-end: var(--space-3);
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: var(--space-4);
+  }
+  @media (min-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr auto;
+    }
+    .hero img {
+      width: 300px;
+    }
+  }
+</style>
