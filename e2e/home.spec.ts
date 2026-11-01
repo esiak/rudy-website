@@ -78,8 +78,8 @@ for (const { locale, contact, about } of pages) {
     }) => {
       await page.goto(path);
       const buttons = page.locator('main a.button');
+      await expect(buttons).toHaveCount(4);
       const count = await buttons.count();
-      expect(count).toBe(4);
       for (let i = 0; i < count; i++) {
         const button = buttons.nth(i);
         await button.focus();

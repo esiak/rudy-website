@@ -85,11 +85,18 @@ for (const p of pages) {
       await expect(button).toBeFocused();
     });
 
-    test('desktop shows nav without button', async ({ page }) => {
+    test('desktop also uses the menu button', async ({ page }) => {
       await page.setViewportSize({ width: 1024, height: 700 });
       await page.goto(p.path);
-      await expect(page.locator('.menu-button')).toBeHidden();
-      await expect(page.locator('.site-nav')).toBeVisible();
+      const button = page.locator('.menu-button');
+      const nav = page.locator('.site-nav');
+      await expect(button).toBeVisible();
+      await expect(nav).toBeHidden();
+      await button.click();
+      await expect(nav).toBeVisible();
+      // A click outside the header (here the footer) closes the menu.
+      await page.locator('footer p').click();
+      await expect(nav).toBeHidden();
     });
   });
 }

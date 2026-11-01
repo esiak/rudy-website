@@ -9,44 +9,75 @@ interface Props {
 
 const { locale } = Astro.props;
 const year = new Date().getFullYear();
+
+// Same link order as the live site: German lists the imprint first.
+const linkKeys =
+  locale === 'de'
+    ? (['imprint', 'privacy'] as const)
+    : (['privacy', 'imprint'] as const);
 ---
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
-    <p>© {year} Rudy Pastel</p>
-    <ul>
-      <li>
-        <a href={getLocalizedPath('privacy', locale)}>
-          {t(locale, 'footer.privacy')}
-        </a>
-      </li>
-      <li>
-        <a href={getLocalizedPath('imprint', locale)}>
-          {t(locale, 'footer.imprint')}
-        </a>
-      </li>
+    <p class="site-footer__copy">
+      © {year} {t(locale, 'footer.owner')}
+    </p>
+    <ul class="site-footer__links">
+      {linkKeys.map((key) => (
+        <li>
+          <a href={getLocalizedPath(key, locale)}>
+            {t(locale, `footer.${key}`)}
+          </a>
+        </li>
+      ))}
     </ul>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background: var(--color-surface-alt);
+    background: var(--color-footer);
     color: var(--color-text-muted);
-    padding-block: var(--space-4);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    padding-block: var(--space-5);
   }
 
+  /* Two equal halves, each centred: copyright left, legal links right. */
   .site-footer__inner {
+    align-items: center;
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+
+  .site-footer__copy {
+    margin: 0;
+  }
+
+  .site-footer__links {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
-    justify-content: space-between;
+    gap: var(--space-2) var(--space-6);
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  ul {
-    display: flex;
-    gap: var(--space-3);
-    list-style: none;
-    padding: 0;
+  .site-footer__links a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .site-footer__links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 767px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

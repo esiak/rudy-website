@@ -8,6 +8,11 @@
   --color-text-muted: #4b4f58;
   --color-surface-alt: #f5f5f5;
   --color-surface: #ffffff;
+  --color-footer: #eeeeee;
+  --color-menu-text: #7a7a7a;
+  /* Darker than the live site's #fdae00 so the current menu item meets WCAG AA. */
+  --color-menu-current: #a86b00;
+  --color-menu-current-bg: #f9fafd;
   --font-heading: Verdana, Helvetica, Arial, sans-serif;
   --font-body: Poppins, sans-serif;
   --radius: 3px;
