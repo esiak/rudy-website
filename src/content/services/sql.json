@@ -1,0 +1,15 @@
+{
+  "key": "sql",
+  "icon": "../../assets/settings.png",
+  "title": {
+    "de": "SQL",
+    "fr": "SQL",
+    "en": "SQL"
+  },
+  "text": {
+    "de": "Ich biete umfassende SQL-Programmierungs- und Datenanalysedienste an, mit Fokus auf effiziente Datenbankverwaltung, komplexe Abfrageoptimierung und robuste Datenintegrität.",
+    "fr": "Je fournis des services spécialisés en développement SQL, permettant une gestion efficace des bases de données, l’optimisation des requêtes et une intégrité robuste des données.",
+    "en": "I provide expert SQL programming and data analysis services, focusing on efficient database management, complex query optimization, and robust data integrity."
+  },
+  "order": 2
+}

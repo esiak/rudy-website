@@ -1,0 +1,11 @@
+{
+  "client": "Munich Re",
+  "start": "2019-02",
+  "end": "2019-09",
+  "description": {
+    "de": "Präsentation eines neuen Versicherungsprodukts über ein Shiny-Dashboard. Das Dashboard ermöglichte interaktive Datenanalysen und Visualisierungen, um potenzielle Kunden zu beeindrucken und Geschäftsentscheidungen zu unterstützen. Die Entwicklung umfasste intensive Zusammenarbeit mit dem Produktteam und iterative Verbesserungen basierend auf Feedback.",
+    "fr": "Présentation d’un nouveau produit d’assurance via un tableau de bord Shiny. Le tableau de bord permettait une analyse interactive pour impressionner les clients et soutenir les décisions. Le développement impliquait une collaboration avec l’équipe produit et des améliorations basées sur les retours.",
+    "en": "Presentation of a new insurance product via a Shiny dashboard. The dashboard enabled interactive data analysis and visualizations to impress potential clients and support business decisions. Development involved close collaboration with the product team and iterative improvements based on feedback."
+  },
+  "order": 6
+}

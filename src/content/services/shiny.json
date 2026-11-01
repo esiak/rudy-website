@@ -1,0 +1,15 @@
+{
+  "key": "shiny",
+  "icon": "../../assets/ads.png",
+  "title": {
+    "de": "Shiny",
+    "fr": "Shiny",
+    "en": "Shiny"
+  },
+  "text": {
+    "de": "Ich biete spezialisierte Dienstleistungen in der Entwicklung von Shiny-Apps an, die interaktive Webanwendungen für dynamische Datenvisualisierung und Echtzeitanalysen erstellen.",
+    "fr": "Je propose des services spécialisés dans le développement d’applications Shiny, qui créent des applications web interactives pour la visualisation dynamique des données et les analyses en temps réel.",
+    "en": "I offer specialized services in Shiny app development, creating interactive web applications for dynamic data visualization and real-time analytical insights."
+  },
+  "order": 3
+}

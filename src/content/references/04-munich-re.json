@@ -1,0 +1,11 @@
+{
+  "client": "Munich Re",
+  "start": "2021-08",
+  "end": "2023-12",
+  "description": {
+    "de": "Schulung neuer Mitarbeiter, Entwicklung von R-Paketen und Wartung von R-Shiny-Dashboards. Dazu gehörte die Erstellung von Schulungsmaterialien, die Durchführung von Workshops und die kontinuierliche Unterstützung der Teammitglieder. Außerdem wurden bestehende Dashboards erweitert und optimiert.",
+    "fr": "Formation des nouvelles recrues, développement de packages R et maintenance des tableaux de bord R-Shiny. Cela impliquait la création de supports de formation, la conduite d’ateliers et le soutien continu des membres de l’équipe. De plus, les tableaux de bord existants ont été étendus et optimisés.",
+    "en": "Training new recruits, developing R packages, and maintaining R-Shiny dashboards. This involved creating training materials, conducting workshops, and providing ongoing support to team members. Additionally, existing dashboards were expanded and optimized."
+  },
+  "order": 4
+}

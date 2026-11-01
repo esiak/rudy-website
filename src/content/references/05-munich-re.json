@@ -1,0 +1,11 @@
+{
+  "client": "Munich Re",
+  "start": "2019-03",
+  "end": "2021-07",
+  "description": {
+    "de": "Entwicklung einer ETL-Software zur Ablösung von Microsoft SSIS. Das Projekt beinhaltete die Erstellung einer robusten, skalierbaren Lösung, die ETL-Prozesse effizienter und benutzerfreundlicher gestaltet sowie die Integration verschiedener Datenquellen, die Automatisierung regelmäßiger Datenimport- und Transformationsaufgaben.",
+    "fr": "Développement d’un logiciel ETL pour remplacer Microsoft SSIS. Le projet impliquait la création d’une solution robuste et évolutive qui rendait les processus ETL plus efficaces et conviviaux. Cela comprenait l’intégration de diverses sources de données et l’automatisation des tâches régulières d’importation et de transformation des données.",
+    "en": "Development of an ETL software to replace Microsoft SSIS. The project involved creating a robust, scalable solution that made ETL processes more efficient and user-friendly. This included integrating various data sources and automating regular data import and transformation tasks."
+  },
+  "order": 5
+}

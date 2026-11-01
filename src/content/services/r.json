@@ -1,0 +1,15 @@
+{
+  "key": "r",
+  "icon": "../../assets/computer.png",
+  "title": {
+    "de": "R",
+    "fr": "R",
+    "en": "R"
+  },
+  "text": {
+    "de": "Ich spezialisiere mich auf fortgeschrittene Programmierung und Datenanalyse mit R, um präzise statistische Modellierung, Datenvisualisierung und reproduzierbare Forschungspraktiken zu gewährleisten.",
+    "fr": "Je me spécialise dans la programmation avancée et l’analyse de données avec R, garantissant une modélisation statistique précise, la visualisation des données et des pratiques de recherche reproductibles.",
+    "en": "I specialize in advanced programming and data analysis using R, ensuring precise statistical modeling, data visualization, and reproducible research practices."
+  },
+  "order": 1
+}

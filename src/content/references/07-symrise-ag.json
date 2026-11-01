@@ -1,0 +1,11 @@
+{
+  "client": "Symrise AG",
+  "start": "2018-07",
+  "end": "2018-08",
+  "description": {
+    "de": "Refactoring von Modellierungs- und Dashboard-Skripten in R-Pakete. Dazu gehörte die Modularisierung und Optimierung des Codes, um die Wiederverwendbarkeit und Wartbarkeit zu verbessern. Außerdem wurden Dokumentation und Tests erstellt, um die Zuverlässigkeit der Skripte zu gewährleisten.",
+    "fr": "Refactorisation des scripts de modélisation et de tableau de bord en packages R. Cela incluait la modularisation et l’optimisation du code pour améliorer la réutilisabilité et la maintenabilité. La documentation et les tests ont également été créés pour assurer la fiabilité des scripts.",
+    "en": "Refactoring of modeling and dashboard scripts into R packages. This included modularizing and optimizing the code to improve reusability and maintainability. Documentation and tests were also created to ensure the reliability of the scripts."
+  },
+  "order": 7
+}

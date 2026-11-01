@@ -9,6 +9,9 @@ Key paths: `src/pages/` (routes), `e2e/` (Playwright specs), `astro.config.mjs`,
 `playwright.config.ts`, `netlify.toml`, `.nvmrc`, `src/netlify-config.test.ts`.
 `src/i18n/` holds the route map (`routes.ts`) and UI
 strings (`ui.ts`); new pages and strings must be added for all three languages.
+Content: `src/content.config.ts` (collections), `src/content/` (one JSON file
+per entry), `src/assets/` (images) and `src/lib/` (content helpers). Every
+localized content field needs `de`, `fr` and `en`.
 
 ## Setup
 

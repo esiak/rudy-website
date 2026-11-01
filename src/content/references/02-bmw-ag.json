@@ -1,0 +1,11 @@
+{
+  "client": "BMW AG",
+  "start": "2023-07",
+  "end": "2023-09",
+  "description": {
+    "de": "Wissenschafts- und Technologierecherche zur automatischen Testfallerstellung für cyber-physische Systeme. Das Ziel war, modernste Techniken zu identifizieren, die Effizienz zu steigern und den Testprozess zu automatisieren, inkl. Dokumentation und Präsentation.",
+    "fr": "Recherche scientifique et technologique pour la génération automatique de cas de test pour les systèmes cyber-physiques. L’objectif était d’identifier les techniques de pointe pour améliorer l’efficacité et automatiser le processus de test. Les résultats ont été documentés et présentés à l’équipe.",
+    "en": "Research on science and technology for automatic test case generation for cyber-physical systems. The goal was to identify state-of-the-art techniques to improve efficiency and automate the testing process. The results were documented and presented to the team."
+  },
+  "order": 2
+}

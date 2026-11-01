@@ -1,0 +1,11 @@
+{
+  "client": "BDO AG",
+  "start": "2022-11",
+  "end": "2022-12",
+  "description": {
+    "de": "Technische Due-Diligence, Prüfung der R-Codebasis eines Omics-Startups. Die Analyse umfasste eine umfassende Codeüberprüfung, Performance-Tests und die Erstellung eines detaillierten Berichts mit Empfehlungen zur Verbesserung der Codequalität und -effizienz.",
+    "fr": "Diligence technique, révision de la base de code R d’une startup en omique. L’analyse comprenait une révision complète du code, des tests de performance et la création d’un rapport détaillé avec des recommandations pour améliorer la qualité et l’efficacité du code.",
+    "en": "Technical due diligence, reviewing the R codebase of an omics startup. The analysis included a comprehensive code review, performance testing, and creating a detailed report with recommendations for improving code quality and efficiency."
+  },
+  "order": 3
+}
