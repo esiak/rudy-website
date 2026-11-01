@@ -7,6 +7,8 @@ tests of the built site.
 Key paths: `src/pages/` (routes), `e2e/` (Playwright specs), `astro.config.mjs`,
 `tsconfig.json`, `eslint.config.js`, `.prettierrc`, `vitest.config.ts`,
 `playwright.config.ts`, `netlify.toml`, `.nvmrc`, `src/netlify-config.test.ts`.
+`src/i18n/` holds the route map (`routes.ts`) and UI
+strings (`ui.ts`); new pages and strings must be added for all three languages.
 
 ## Setup
 
