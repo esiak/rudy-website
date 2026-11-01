@@ -113,7 +113,7 @@ If you have restricted the processing of your personal data, this data may – a
 
 ### SSL or TLS Encryption
 
-This site uses SSL or TLS encryption for security reasons and to protect the transmission of confidential content, such as orders or inquiries that you send to us as the site operator. You can recognize an encrypted connection by the fact that the address line of the browser changes from “http://” to “https://” and by the lock symbol in your browser line.
+This site uses SSL or TLS encryption for security reasons and to protect the transmission of confidential content, such as orders or inquiries that you send to us as the site operator. You can recognize an encrypted connection by the fact that the address line of the browser changes from “http\://” to “https\://” and by the lock symbol in your browser line.
 
 If SSL or TLS encryption is activated, the data you transmit to us cannot be read by third parties.
 
