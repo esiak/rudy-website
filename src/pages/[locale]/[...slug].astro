@@ -10,6 +10,7 @@ export function getStaticPaths() {
       .filter((pageKey) => pageKey !== 'home')
       .filter((pageKey) => pageKey !== 'services')
       .filter((pageKey) => pageKey !== 'about')
+      .filter((pageKey) => pageKey !== 'contact')
       .map((pageKey) => ({
         params: { locale, slug: routes[pageKey][locale] || undefined },
         props: { locale, pageKey },

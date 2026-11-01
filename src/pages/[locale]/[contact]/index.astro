@@ -1,0 +1,56 @@
+---
+import ContactForm from '../../../components/contact/ContactForm.astro';
+import { locales, routes } from '../../../i18n/routes';
+import type { Locale } from '../../../i18n/routes';
+import { t } from '../../../i18n/ui';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({
+    params: { locale, contact: routes.contact[locale] },
+    props: { locale },
+  }));
+}
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const label = t(locale, 'nav.contact');
+---
+
+<BaseLayout
+  locale={locale}
+  pageKey="contact"
+  title={`${label} | Dr. Rudy Pastel`}
+>
+  <h1>{label}</h1>
+  <div class="contact">
+    <ContactForm locale={locale} />
+    <aside>
+      <h2>{t(locale, 'contact.messageMeTitle')}</h2>
+      <p>{t(locale, 'contact.messageMeText')}</p>
+      <p>
+        <a href="mailto:pastel.web@rudypastel.com">pastel.web@rudypastel.com</a>
+      </p>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  aside p + p {
+    margin-top: var(--space-3);
+  }
+
+  .contact {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  @media (min-width: 768px) {
+    .contact {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

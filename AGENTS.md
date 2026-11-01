@@ -20,6 +20,8 @@ entry from `getTestimonials`); page-specific components live in
 Home lives in `src/pages/[locale]/index.astro` with its components in
 `src/components/home/` and copy in `src/i18n/home.ts`; `BaseLayout`'s `fullWidth`
 prop is for pages built from full-bleed sections.
+`src/components/contact/` holds the contact form and its script. The thanks
+pages live outside the route map (slugs in `src/components/contact/thanks.ts`).
 
 ## Setup
 
