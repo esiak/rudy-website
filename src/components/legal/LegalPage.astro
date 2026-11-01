@@ -1,0 +1,57 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { t } from '../../i18n/ui';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImprintDe from './content/de/imprint.md';
+import ImprintFr from './content/fr/imprint.md';
+import ImprintEn from './content/en/imprint.md';
+import PrivacyDe from './content/de/privacy.md';
+import PrivacyFr from './content/fr/privacy.md';
+import PrivacyEn from './content/en/privacy.md';
+
+interface Props {
+  locale: Locale;
+  pageKey: 'imprint' | 'privacy';
+}
+
+const { locale, pageKey } = Astro.props;
+const label = t(locale, `nav.${pageKey}`);
+const content = {
+  imprint: { de: ImprintDe, fr: ImprintFr, en: ImprintEn },
+  privacy: { de: PrivacyDe, fr: PrivacyFr, en: PrivacyEn },
+};
+const Content = content[pageKey][locale];
+---
+
+<BaseLayout
+  locale={locale}
+  pageKey={pageKey}
+  title={`${label} | Dr. Rudy Pastel`}
+>
+  <h1>{label}</h1>
+  <div class="legal">
+    <Content />
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    max-width: 70ch;
+  }
+  .legal :global(h2),
+  .legal :global(h3),
+  .legal :global(h4) {
+    margin-block-start: var(--space-4);
+  }
+  .legal :global(p),
+  .legal :global(ul) {
+    margin-block-end: var(--space-3);
+  }
+  .legal :global(ul) {
+    padding-inline-start: var(--space-4);
+    list-style: disc;
+  }
+  .legal :global(a) {
+    overflow-wrap: anywhere;
+  }
+</style>

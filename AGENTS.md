@@ -14,6 +14,9 @@ per entry), `src/assets/` (images) and `src/lib/` (content helpers). Every
 localized content field needs `de`, `fr` and `en`.
 Services page: `src/components/services/` (page component and styles); its
 copy is in `src/content/services-page/page.json` (`servicesPage` collection).
+Legal pages: `src/components/legal/` (component, styles and Markdown content); the
+page files are in `src/pages/{de,fr,en}/`; privacy changes are tracked in
+`docs/privacy-changes.md`.
 
 ## Setup
 
