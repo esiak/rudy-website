@@ -15,7 +15,8 @@ const de = {
   'form.name': 'Name',
   'form.email': 'E-Mail',
   'form.message': 'Nachricht',
-  'form.submit': 'Absenden',
+  'form.submit': 'Senden',
+  'form.messagePlaceholder': 'Nachricht',
   'form.error.nameRequired': 'Bitte geben Sie Ihren Namen ein.',
   'form.error.emailRequired': 'Bitte geben Sie Ihre E-Mail-Adresse ein.',
   'form.error.emailInvalid': 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
@@ -23,6 +24,7 @@ const de = {
   'form.privacyNote':
     'Ich verwende Ihre Angaben nur, um auf Ihre Nachricht zu antworten.',
   'form.privacyLink': 'Datenschutzerklärung',
+  'contact.formTitle': 'Ihre Nachricht',
   'contact.messageMeTitle': 'Message Me',
   'contact.messageMeText':
     'Ich freue mich auf Ihre Anfrage und darauf, gemeinsam großartige Lösungen zu entwickeln. Kontaktieren Sie mich gerne!',
@@ -50,9 +52,10 @@ const fr = {
   'footer.imprint': 'Mentions légales',
   'footer.owner': 'Rudy Pastel',
   'form.name': 'Nom',
-  'form.email': 'E-mail',
+  'form.email': 'E-Mail',
   'form.message': 'Message',
   'form.submit': 'Envoyer',
+  'form.messagePlaceholder': 'Votre message',
   'form.error.nameRequired': 'Veuillez saisir votre nom.',
   'form.error.emailRequired': 'Veuillez saisir votre adresse e-mail.',
   'form.error.emailInvalid': 'Veuillez saisir une adresse e-mail valide.',
@@ -60,6 +63,7 @@ const fr = {
   'form.privacyNote':
     'J’utilise vos données uniquement pour répondre à votre message.',
   'form.privacyLink': 'Politique de confidentialité',
+  'contact.formTitle': 'Formulaire',
   'contact.messageMeTitle': 'Message Moi',
   'contact.messageMeText':
     'Je me réjouis de votre demande et de développer ensemble de grandes solutions. N’hésitez pas à me contacter !',
@@ -88,12 +92,14 @@ const en = {
   'form.email': 'Email',
   'form.message': 'Message',
   'form.submit': 'Submit',
+  'form.messagePlaceholder': 'Your message',
   'form.error.nameRequired': 'Please enter your name.',
   'form.error.emailRequired': 'Please enter your email address.',
   'form.error.emailInvalid': 'Please enter a valid email address.',
   'form.error.messageRequired': 'Please enter a message.',
   'form.privacyNote': 'I only use your details to reply to your message.',
   'form.privacyLink': 'Privacy policy',
+  'contact.formTitle': 'Contact form',
   'contact.messageMeTitle': 'Message me!',
   'contact.messageMeText':
     'I look forward to hearing from you and developing great solutions together. Don’t hesitate to contact me!',

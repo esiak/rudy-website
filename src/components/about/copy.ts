@@ -15,6 +15,7 @@ export interface AboutCopy {
   expertiseHeading: string;
   expertise: [string, string, string, string];
   languagesHeading: string;
+  /** Words between ** are shown in bold, as on the live site. */
   languages: [string, string, string, string];
   testimonialsHeading: string;
   testimonialsLead: string;
@@ -47,10 +48,10 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
     expertise: ['Machine Learning', 'Statistik', 'Data Mining', 'Modelling'],
     languagesHeading: 'Sprachkenntnisse',
     languages: [
-      'fließend Englisch (C2),',
-      'Deutsch (C1.2) und',
-      'Französisch (Muttersprache) sowie',
-      'fortgeschrittenes Spanisch (A2).',
+      'fließend **Englisch** (C2),',
+      '**Deutsch** (C1.2) und',
+      '**Französisch** (Muttersprache) sowie',
+      'fortgeschrittenes **Spanisch** (A2).',
     ],
     testimonialsHeading: 'Kundenstimmen',
     testimonialsLead: 'Das sagen meine Kunden über mich.',
@@ -87,10 +88,10 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
     ],
     languagesHeading: 'Langues',
     languages: [
-      'couramment anglais (C2),',
-      'allemand (C1.2) et',
-      'français (langue maternelle)',
-      'ainsi que l’espagnol avancé (A2).',
+      'couramment **anglais** (C2),',
+      '**allemand** (C1.2) et',
+      '**français** (langue maternelle)',
+      'ainsi que **l’espagnol** avancé (A2).',
     ],
     testimonialsHeading: 'Témoignages de clients',
     testimonialsLead: 'Voici ce que mes clients disent de moi.',
@@ -122,10 +123,10 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
     expertise: ['Machine learning', 'Statistics', 'Data mining', 'Modelling'],
     languagesHeading: 'Language skills',
     languages: [
-      'fluent in English (C2),',
-      'German (C1.2), and',
-      'French (native),',
-      'with advanced proficiency in Spanish (A2).',
+      'fluent in **English** (C2),',
+      '**German** (C1.2), and',
+      '**French** (native),',
+      'with advanced proficiency in **Spanish** (A2).',
     ],
     testimonialsHeading: 'Customer testimonials',
     testimonialsLead: 'This is what my clients say about me.',

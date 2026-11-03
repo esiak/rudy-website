@@ -18,7 +18,7 @@ const linkKeys =
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer__inner">
+  <div class="site-footer__inner">
     <p class="site-footer__copy">
       © {year} {t(locale, 'footer.owner')}
     </p>
@@ -35,31 +35,32 @@ const linkKeys =
 </footer>
 
 <style>
+  /* Values measured from the live site's Astra footer. */
   .site-footer {
     background: var(--color-footer);
     color: var(--color-text-muted);
     font-family: var(--font-heading);
-    font-size: 1rem;
-    padding-block: var(--space-5);
+    padding-block: 20px;
   }
 
   /* Two equal halves, each centred: copyright left, legal links right. */
   .site-footer__inner {
-    align-items: center;
+    align-items: start;
+    column-gap: 50px;
     display: grid;
-    gap: var(--space-3);
     grid-template-columns: 1fr 1fr;
-    text-align: center;
+    margin-inline: auto;
+    max-width: 1200px;
+    min-height: 60px;
   }
 
   .site-footer__copy {
     margin: 0;
+    text-align: center;
   }
 
   .site-footer__links {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2) var(--space-6);
     justify-content: center;
     list-style: none;
     margin: 0;
@@ -68,14 +69,32 @@ const linkKeys =
 
   .site-footer__links a {
     color: var(--color-primary);
+    display: block;
+    font-size: 16px;
+    line-height: 1.65;
+    padding-inline-end: 50px;
     text-decoration: none;
   }
 
-  .site-footer__links a:hover {
-    text-decoration: underline;
+  @media (max-width: 921px) {
+    .site-footer__copy,
+    .site-footer__links {
+      margin-block-end: 10px;
+    }
+
+    .site-footer__links {
+      display: grid;
+    }
   }
 
   @media (max-width: 767px) {
+    .site-footer__links a {
+      font-size: 1rem;
+      padding-inline: 20px;
+    }
+  }
+
+  @media (max-width: 544px) {
     .site-footer__inner {
       grid-template-columns: 1fr;
     }

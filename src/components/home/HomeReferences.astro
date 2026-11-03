@@ -13,47 +13,122 @@ const copy = home[locale];
 const references = await getReferences(locale);
 ---
 
-<HomeSection variant="grey" id="references" heading={copy.referencesHeading}>
-  <h2 id="references-heading">{copy.referencesHeading}</h2>
-  <p>{copy.referencesIntro}</p>
+<HomeSection
+  variant="grey"
+  id="references"
+  heading={copy.referencesHeading}
+  class="home-references"
+>
+  <h2 id="references-heading" class="section-title">
+    {copy.referencesHeading}
+  </h2>
+  <div class="section-intro">
+    <p>{copy.referencesIntro}</p>
+  </div>
+  <div class="divider"></div>
   <ul class="cards">
     {references.map((reference) => (
-      <li class="card" data-card="reference">
+      <li class="card reference" data-card="reference">
         <h3>{reference.client}</h3>
-        <p class="card__period">{reference.period}</p>
-        <p>{reference.description}</p>
+        <p class="reference__period">{reference.period}</p>
+        <p class="reference__text">{reference.description}</p>
       </li>
     ))}
   </ul>
 </HomeSection>
 
 <style>
+  :global(section.band.home-references) {
+    padding-block: 60px;
+  }
+  .section-title,
+  .section-intro {
+    padding-block-end: 20px;
+  }
+  .divider {
+    margin-block-end: 22px;
+  }
+  /* Rows of 2, 3, 3 and 2 cards, as on the live site. */
   .cards {
     display: grid;
-    gap: var(--space-4);
-    grid-template-columns: 1fr;
+    gap: 51px 50px;
+    grid-template-columns: repeat(6, 1fr);
     list-style: none;
-    margin-block-start: var(--space-4);
+    margin: 85px 25px 50px;
     padding: 0;
   }
-  .card {
-    background: var(--color-surface);
-    border-radius: var(--radius);
-    padding: var(--space-4);
+  .reference {
+    grid-column: span 2;
+    padding: 25px 15px 0 30px;
   }
-  .card__period {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-    margin-block-end: var(--space-2);
+  .reference:nth-child(-n + 2),
+  .reference:nth-child(n + 9) {
+    grid-column: span 3;
   }
-  @media (min-width: 768px) {
+  .reference:nth-child(n + 9) {
+    margin-block-start: 49px;
+  }
+  .reference h3 {
+    color: #000;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .reference__period {
+    color: var(--color-primary);
+    line-height: 1.25;
+    margin-block-start: 26px;
+  }
+  .reference__text {
+    color: var(--color-text);
+    margin-block: 24px 1.75em;
+  }
+
+  @media (max-width: 1024px) {
+    :global(section.band.home-references) {
+      padding: 100px 20px;
+    }
     .cards {
-      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 20px;
+      margin: 45px 10px 20px;
+    }
+    .reference:nth-child(n + 9) {
+      margin-block-start: -4px;
+    }
+    .reference {
+      padding-block-end: 25px;
+    }
+    .reference__period {
+      margin-block-start: 24px;
+    }
+    .reference__text {
+      margin-block-start: 23px;
     }
   }
-  @media (min-width: 1100px) {
+
+  @media (max-width: 767px) {
+    :global(section.band.home-references) {
+      padding: 60px 30px;
+    }
     .cards {
-      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      grid-template-columns: 1fr;
+      margin: 34px 0 0;
+    }
+    .reference {
+      padding-block: 24px 0;
+    }
+    .reference__period {
+      margin-block-start: 27px;
+    }
+    .reference__text {
+      margin-block-start: 22px;
+    }
+    .reference,
+    .reference:nth-child(-n + 2),
+    .reference:nth-child(n + 9) {
+      grid-column: auto;
     }
   }
 </style>

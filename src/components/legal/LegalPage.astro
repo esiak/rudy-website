@@ -27,29 +27,76 @@ const Content = content[pageKey][locale];
   locale={locale}
   pageKey={pageKey}
   title={`${label} | Dr. Rudy Pastel`}
+  fullWidth
 >
-  <h1>{label}</h1>
-  <div class="legal">
-    <Content />
-  </div>
+  <article class="legal">
+    <h1>{label}</h1>
+    <div class="legal__content">
+      <Content />
+    </div>
+  </article>
 </BaseLayout>
 
 <style>
+  /* Values measured from the live site's plain Astra pages. */
   .legal {
-    max-width: 70ch;
+    margin-inline: auto;
+    max-width: 1240px;
     overflow-wrap: anywhere;
+    padding: 60px 20px;
+  }
+  .legal h1 {
+    color: var(--color-header);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 calc(0.6em + 4.4px);
   }
   .legal :global(h2),
   .legal :global(h3),
   .legal :global(h4) {
-    margin-block-start: var(--space-4);
+    color: var(--color-header);
+    font-weight: 600;
+    margin: 0 0 20px;
   }
-  .legal :global(p),
-  .legal :global(ul) {
-    margin-block-end: var(--space-3);
+  .legal :global(h2) {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+  .legal :global(h3) {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+  .legal :global(h4) {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+  .legal :global(p) {
+    margin-block-end: 1.6em;
   }
   .legal :global(ul) {
-    padding-inline-start: var(--space-4);
     list-style: disc;
+    margin: 1em 0;
+    padding-inline-start: 20px;
+  }
+  /* The live pages show addresses as plain text. */
+  .legal :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+  .legal :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 921px) {
+    .legal {
+      padding-block: 0;
+    }
+    .legal :global(h2) {
+      font-size: 25px;
+    }
+    .legal :global(h3) {
+      font-size: 20px;
+    }
   }
 </style>

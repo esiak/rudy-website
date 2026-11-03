@@ -6,6 +6,7 @@ import type { Locale } from '../../i18n/routes';
 import { t } from '../../i18n/ui';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import portrait from '../../assets/24220_024-Kopie.jpg';
+import HomeButton from '../home/HomeButton.astro';
 
 interface Props {
   locale: Locale;
@@ -15,84 +16,312 @@ const { locale } = Astro.props;
 const page = (await getEntry('servicesPage', 'page'))!.data;
 const label = t(locale, 'nav.services');
 const contactPath = getLocalizedPath('contact', locale);
+
+// Pairs of services share a band; the second band is grey. The heading sits
+// on the left in the first of each pair and on the right in the second, as on
+// the live site.
+const bands = Array.from(
+  { length: Math.ceil(page.sections.length / 2) },
+  (_, band) => page.sections.slice(band * 2, band * 2 + 2),
+);
 ---
 
 <BaseLayout
   locale={locale}
   pageKey="services"
   title={`${label} | Dr. Rudy Pastel`}
+  fullWidth
 >
-  <h1>{label}</h1>
-  <div class="services-intro">
-    <Image
-      src={portrait}
-      width={350}
-      height={457}
-      alt="Dr. Rudy Pastel – Data Scientist"
-    />
-    <div>
-      {page.intro.map((text) => (
-        <p>{text[locale]}</p>
-      ))}
-      <p>
-        {page.talk[locale]}{' '}
-        <a href="mailto:pastel.web@rudypastel.com">pastel.web@rudypastel.com</a>
-      </p>
-      <a class="button" href={contactPath}>
-        {page.button[locale]}
-      </a>
+  <section class={`page-title page-title--${locale}`}>
+    <div class="page-title__inner">
+      <h1>{label}</h1>
+      <div class="page-title__divider"></div>
+    </div>
+  </section>
+
+  <div class={`services-intro services-intro--${locale}`}>
+    <div class="services-intro__inner">
+      <div class="services-intro__frame">
+        <Image
+          src={portrait}
+          widths={[284, 350]}
+          sizes="(min-width: 1025px) 284px, 350px"
+          alt="Dr. Rudy Pastel – Data Scientist"
+        />
+      </div>
+      <div class="services-intro__text">
+        <div>
+          {page.intro.map((text) => (
+            <p>{text[locale]}</p>
+          ))}
+        </div>
+        <p class="services-intro__talk">{page.talk[locale]}</p>
+        <p class="services-intro__mail">
+          <a href="mailto:pastel.web@rudypastel.com">
+            pastel.web@rudypastel.com
+          </a>
+        </p>
+        <div>
+          <HomeButton variant="accent" href={contactPath}>
+            {page.button[locale]}
+          </HomeButton>
+        </div>
+      </div>
     </div>
   </div>
-  {page.sections.map((section) => (
-    <section>
-      <h2>{section.title[locale]}</h2>
-      <p>{section.text[locale]}</p>
-    </section>
+
+  {locale !== 'fr' && (
+    <div class={`services-rule services-rule--${locale}`}>
+      <div class="services-rule__line" />
+    </div>
+  )}
+
+  {bands.map((pair, band) => (
+    <div
+      class:list={[
+        'services-band',
+        {
+          'services-band--split': band === 0 && locale === 'de',
+          'services-band--joined': band === 0 && locale === 'en',
+          'services-band--grey': band === 1,
+        },
+      ]}
+    >
+      <div class="services-band__inner">
+        {pair.map((section, i) =>
+          i === 0 ? (
+            <section class="service-row">
+              <div class="service-row__col">
+                <h2 class="service-row__title service-row__title--end">
+                  {section.title[locale]}
+                </h2>
+              </div>
+              <div class="service-row__col">
+                <p>{section.text[locale]}</p>
+              </div>
+            </section>
+          ) : (
+            <section class="service-row">
+              <div class="service-row__col">
+                <p>{section.text[locale]}</p>
+              </div>
+              <div class="service-row__col">
+                <h2 class="service-row__title">{section.title[locale]}</h2>
+              </div>
+            </section>
+          ),
+        )}
+      </div>
+    </div>
   ))}
-  <section>
-    <h2>{page.closing.title[locale]}</h2>
-    <p>{page.closing.text[locale]}</p>
-    <a class="button" href={contactPath}>
-      {page.button[locale]}
-    </a>
+
+  <section class="services-closing">
+    <div class="services-closing__inner">
+      <h2>{page.closing.title[locale]}</h2>
+      <p>{page.closing.text[locale]}</p>
+      <div class="services-closing__divider"></div>
+      <HomeButton variant="accent" href={contactPath}>
+        {page.button[locale]}
+      </HomeButton>
+    </div>
   </section>
 </BaseLayout>
 
 <style>
+  /* Values measured from the live Elementor page. */
+  .page-title::before {
+    background-image: url('../../assets/24220_070-Portrait-freigstellt-H450.png');
+  }
+
   .services-intro {
-    display: grid;
-    gap: var(--space-4);
-    margin-block-end: var(--space-5);
+    margin-block-start: 100px;
+    padding: 10px;
   }
-  .services-intro img {
-    max-width: 100%;
+  .services-intro__inner {
+    display: flex;
+    margin-inline: auto;
+    max-width: var(--content-width);
+  }
+  .services-intro__frame {
+    background: var(--color-primary);
+    flex-shrink: 0;
+    padding: 10px;
+    width: 24.548%;
+  }
+  .services-intro__frame img {
     height: auto;
+    margin-inline-start: -24px;
+    max-width: 350px;
+    width: calc(100% + 24px);
   }
-  @media (min-width: 768px) {
-    .services-intro {
-      grid-template-columns: auto 1fr;
-      align-items: start;
-    }
+  .services-intro__text {
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    width: 66.6666%;
   }
-  .services-intro p,
-  section p {
-    margin-block-end: var(--space-3);
+  .services-intro__text p {
+    margin-block-end: 1.6em;
   }
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: var(--space-2) var(--space-4);
-    max-width: 100%;
-    text-align: center;
-    background: var(--color-accent);
-    color: var(--color-header);
-    border-radius: var(--radius);
+  .services-intro__talk,
+  .services-intro__mail {
+    color: var(--color-navy);
     font-weight: 600;
+    line-height: 1.2;
+  }
+  .services-intro__text .services-intro__talk,
+  .services-intro__text .services-intro__mail {
+    margin: 0;
+  }
+  .services-intro__mail a {
+    color: inherit;
     text-decoration: none;
   }
-  section {
-    margin-block-end: var(--space-5);
+
+  .services-rule {
+    padding: 10px;
+  }
+  .services-rule__line {
+    border-top: 1px solid var(--color-primary);
+    margin: 38px auto;
+    max-width: calc(var(--content-width) / 2);
+    width: 50%;
+  }
+
+  .services-band {
+    padding: 10px;
+  }
+  /* The first two services sit in separate blocks on the live site, so
+     there is a gap between them. */
+  .services-band--split .service-row + .service-row {
+    margin-block-start: 20px;
+  }
+  /* On the English page the rule and the first services share one block. */
+  .services-rule--en {
+    padding-block-end: 0;
+  }
+  .services-band--joined {
+    padding-block-start: 0;
+  }
+  /* The English intro text column fills the rest of the row. */
+  .services-intro--en .services-intro__text {
+    flex: 1;
+    margin-inline-start: 20px;
+    width: auto;
+  }
+  .services-band--grey {
+    background: var(--color-surface-alt);
+  }
+  .services-band__inner {
+    margin-inline: auto;
+    max-width: var(--content-width);
+  }
+  .service-row {
+    display: flex;
+  }
+  .service-row__col {
+    color: var(--color-text);
+    padding: 10px;
+    width: 50%;
+  }
+  .service-row__col p {
+    margin-block-end: 1.6em;
+  }
+  .service-row__title {
+    color: var(--color-navy);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .service-row__title--end {
+    text-align: end;
+  }
+
+  .services-closing {
+    background: var(--color-surface-alt)
+      url('../../assets/24220_070-freigstellt-H450-links.png') no-repeat 50px 0;
+    padding-block: 50px;
+  }
+  .services-closing__inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-inline: auto;
+    max-width: 637px;
+    text-align: center;
+  }
+  .services-closing h2 {
+    color: var(--color-navy);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .services-closing p {
+    color: var(--color-text);
+    margin-block-end: 1.6em;
+  }
+  .services-closing__divider {
+    border-top: 2px solid var(--color-primary);
+    margin-block: 2px;
+    width: 9%;
+  }
+
+  @media (max-width: 1024px) {
+    .services-closing {
+      background-position: 0 0;
+      padding-block: 60px;
+    }
+  }
+
+  @media (max-width: 921px) {
+    .service-row__title {
+      font-size: 25px;
+    }
+    .services-closing h2 {
+      font-size: 20px;
+    }
+  }
+
+  /* On phones the live site swaps in a blue title band and a closing band
+     without the photo. */
+  @media (max-width: 767px) {
+    .page-title {
+      background: var(--color-primary);
+      min-height: 0;
+      padding-block: 70px 20px;
+    }
+    .page-title::before {
+      background-image: none;
+    }
+    .page-title h1 {
+      color: var(--color-surface);
+    }
+    .services-intro__inner,
+    .service-row {
+      flex-direction: column;
+    }
+    .services-intro__frame,
+    .services-intro__text,
+    .service-row__col {
+      width: 100%;
+    }
+    .services-closing {
+      background-image: none;
+    }
+    .services-intro--en .services-intro__text {
+      margin: 20px 0 0;
+    }
+    .page-title--fr,
+    .page-title--en {
+      padding-block-end: 50px;
+    }
+    .services-closing p {
+      padding-inline: 25px;
+    }
   }
 </style>

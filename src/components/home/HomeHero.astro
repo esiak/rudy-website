@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '../../assets/24220_012-H600.jpg';
+import portrait from '../../assets/24220_070-Portrait-freigstellt-H450.png';
 import { home } from '../../i18n/home';
 import { getLocalizedPath } from '../../i18n/routes';
 import type { Locale } from '../../i18n/routes';
@@ -16,65 +16,137 @@ const { locale } = Astro.props;
 const copy = home[locale];
 ---
 
-<HomeSection variant="primary" id="hero">
-  <div class="hero">
-    <div class="hero__text">
-      <h1>{copy.name}</h1>
-      <p class="hero__tagline">{copy.tagline}</p>
-      <p>{copy.qualification}</p>
-      <div class="hero__actions">
+<HomeSection variant="primary" id="hero" class="home-hero">
+  <Image
+    class="hero__portrait"
+    src={portrait}
+    alt={copy.portraitAlt}
+    loading="eager"
+  />
+  <div class="hero__text">
+    <h1>{copy.name}</h1>
+    <p class="hero__tagline">{copy.tagline}</p>
+    <p class="hero__qualification">{copy.qualification}</p>
+    <div class="hero__actions">
+      <div class="hero__cell">
         <HomeButton variant="accent" href={getLocalizedPath('contact', locale)}>
           {t(locale, 'button.contactMe')}
         </HomeButton>
+      </div>
+      <div class="hero__cell">
         <HomeButton variant="navy" href={getLocalizedPath('about', locale)}>
           {t(locale, 'button.moreInfo')}
         </HomeButton>
       </div>
     </div>
-    <Image
-      src={portrait}
-      alt={copy.portraitAlt}
-      width={449}
-      height={600}
-      widths={[300, 449]}
-      sizes="(min-width: 768px) 300px, 70vw"
-      loading="eager"
-    />
   </div>
 </HomeSection>
 
 <style>
-  .hero {
+  /* The cut-out portrait sits on the right of the blue band, behind the
+     text, like the live site's background image. */
+  :global(section.band.home-hero) {
     align-items: center;
-    display: grid;
-    gap: var(--space-5);
+    display: flex;
+    min-height: 450px;
+    overflow: hidden;
+    padding-block: 0;
+    position: relative;
   }
-  .hero img {
-    border-radius: var(--radius);
-    height: auto;
-    max-width: 300px;
-    width: 70%;
+  :global(section.band.home-hero .band__inner) {
+    width: 100%;
+  }
+  .hero__portrait {
+    height: 450px;
+    max-width: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 539px;
+  }
+  .hero__text {
+    position: relative;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-inline-start: 50px;
+    padding-inline-start: 20px;
+    width: 53.348%;
+  }
+  :global(section.band.home-hero) h1 {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    text-align: center;
   }
   .hero__tagline {
-    font-family: var(--font-heading);
-    font-size: 22px;
-    margin-block-end: var(--space-2);
+    color: var(--color-surface-alt);
+    font-size: 30px;
+    line-height: 1.3;
   }
-  .hero__text p {
-    margin-block-end: var(--space-3);
+  .hero__qualification {
+    margin-block-end: 1.75em;
   }
   .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-block-start: var(--space-4);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
   }
-  @media (min-width: 768px) {
-    .hero {
-      grid-template-columns: 1fr auto;
+  .hero__cell {
+    padding-inline-end: 10px;
+  }
+  .hero__cell + .hero__cell {
+    padding-inline-start: 10px;
+  }
+
+  @media (max-width: 921px) {
+    :global(section.band.home-hero) h1 {
+      font-size: 30px;
     }
-    .hero img {
-      width: 300px;
+    .hero__tagline {
+      font-size: 25px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .hero__actions {
+      padding-inline: 10px;
+    }
+    .hero__cell + .hero__cell {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 767px) {
+    :global(section.band.home-hero) {
+      align-items: stretch;
+      flex-direction: column;
+      padding-block-start: 151px;
+    }
+    .hero__portrait {
+      left: 0;
+      opacity: 0.75;
+      right: auto;
+      top: 0;
+      transform: none;
+    }
+    .hero__text {
+      margin-inline-start: 0;
+      width: 100%;
+    }
+    .hero__qualification {
+      font-size: 14px;
+      margin-inline: 35px;
+      text-align: center;
+    }
+    .hero__actions {
+      grid-template-columns: 1fr;
+    }
+    .hero__cell {
+      text-align: center;
     }
   }
 </style>

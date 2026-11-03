@@ -23,6 +23,7 @@ const { locale } = Astro.props;
   locale={locale}
   pageKey="about"
   title={`${t(locale, 'nav.about')} | Dr. Rudy Pastel`}
+  fullWidth
 >
   <AboutPage locale={locale} />
 </BaseLayout>

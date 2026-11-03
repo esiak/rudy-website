@@ -12,20 +12,33 @@ const { href, variant } = Astro.props;
 </a>
 
 <style>
+  /* Same as the live site's buttons, including white text on yellow. */
   .button {
-    border-radius: var(--radius);
+    border-radius: 3px;
+    color: var(--color-surface);
     display: inline-block;
     font-family: var(--font-heading);
-    font-weight: 600;
-    padding: var(--space-2) var(--space-4);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    padding: 15px 30px;
+    text-align: center;
     text-decoration: none;
+  }
+  @media (max-width: 921px) {
+    .button {
+      padding: 14px 28px;
+    }
+  }
+  @media (max-width: 544px) {
+    .button {
+      padding: 12px 24px;
+    }
   }
   .button--accent {
     background: var(--color-accent);
-    color: var(--color-header);
   }
   .button--navy {
     background: var(--color-navy);
-    color: var(--color-surface);
   }
 </style>

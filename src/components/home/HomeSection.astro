@@ -8,13 +8,14 @@ interface Props {
   heading?: string;
   /** Background photo for the `photo` variant. Decorative, so it has no alt text. */
   image?: ImageMetadata;
+  class?: string;
 }
 
-const { variant, id, heading, image } = Astro.props;
+const { variant, id, heading, image, class: className } = Astro.props;
 ---
 
 <section
-  class={`band band--${variant}`}
+  class:list={['band', `band--${variant}`, className]}
   data-section={id}
   aria-labelledby={heading ? `${id}-heading` : undefined}
 >
@@ -28,14 +29,21 @@ const { variant, id, heading, image } = Astro.props;
       loading="lazy"
     />
   )}
-  <div class="container band__inner">
+  <div class="band__inner">
     <slot />
   </div>
 </section>
 
 <style>
   .band {
-    padding-block: var(--space-6);
+    padding-block: 50px;
+  }
+  /* Flex, like Elementor's containers, so margins never collapse. */
+  .band__inner {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    max-width: var(--content-width);
   }
   .band--primary {
     background: var(--color-primary);
@@ -62,20 +70,16 @@ const { variant, id, heading, image } = Astro.props;
     /* Same height as the live site's section: 49% of the window on tablets
        and phones, 60.39% on wider screens (see the media query below). */
     min-height: 49vh;
-    padding-block: 2.5rem;
+    padding-block: 40px;
     overflow: hidden;
     position: relative;
     text-align: center;
-    /* Keeps the white text crisp over small bright spots in the photo. */
-    text-shadow: 0 1px 3px rgb(0 0 0 / 60%);
   }
   @media (min-width: 1025px) {
     .band--photo {
       min-height: 60.39vh;
+      padding-block: 0;
     }
-  }
-  .band--photo :global(a.button) {
-    text-shadow: none;
   }
   .band--photo::before {
     background: var(--color-photo-overlay);
@@ -97,14 +101,7 @@ const { variant, id, heading, image } = Astro.props;
     width: 100%;
     z-index: 2;
   }
-  .band--photo :global(h2) {
-    color: var(--color-surface);
-  }
   .band--photo :global(:focus-visible) {
     outline-color: var(--color-surface);
-  }
-
-  .band__inner > :global(p) {
-    margin-block-end: var(--space-3);
   }
 </style>
