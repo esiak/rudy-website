@@ -1,3 +1,41 @@
+# GitHub Pages migration
+
+**The GitHub wording in the privacy texts is a draft. Rudy must approve it before launch.** It is legal copy modelled on the earlier Netlify paragraphs.
+
+Rudy should verify:
+
+1. **The GitHub legal entity and link.** The text names "GitHub, Inc., San Francisco, USA" and links to https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement. No street address is given.
+2. **The DPA and transfer basis.** The text says GitHub processes data under a data processing agreement (Art. 28 GDPR), that data may be processed in the USA, and that the transfer relies on the safeguards in GitHub's data protection agreement (EU standard contractual clauses / EU–US Data Privacy Framework).
+
+The contact form is gone (the page shows only the email address), so the paragraph about Netlify Forms is removed. The generic contact-form section is unchanged. All other text is unchanged.
+
+## DE – Datenschutz (`/de/datenschutz/`)
+
+| Section | Old text | New text | Reason |
+|---|---|---|---|
+| 2. Hosting › Externes Hosting | Beim Besuch dieser Website erfasst Netlify automatisch Server-Logfiles. Dazu gehören die IP-Adresse, Datum und Uhrzeit der Anfrage, die aufgerufene Seite, die Referrer-URL sowie Browser und Betriebssystem. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sichere und stabile Bereitstellung der Website). | Beim Besuch dieser Website erfasst GitHub (GitHub Pages) automatisch Server-Logfiles. Dazu gehören die IP-Adresse, Datum und Uhrzeit der Anfrage, die aufgerufene Seite, die Referrer-URL sowie Browser und Betriebssystem. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sichere und stabile Bereitstellung der Website). | GitHub Pages replaces Netlify as host and records the server logs. |
+| 2. Hosting › Externes Hosting | Netlify verarbeitet Daten in unserem Auftrag auf Grundlage eines Vertrags über Auftragsverarbeitung (Art. 28 DSGVO). Die Daten können dabei in den USA verarbeitet werden. Die Übermittlung stützt sich auf die Garantien im Auftragsverarbeitungsvertrag von Netlify (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework). | GitHub verarbeitet Daten in unserem Auftrag auf Grundlage eines Vertrags über Auftragsverarbeitung (Art. 28 DSGVO). Die Daten können dabei in den USA verarbeitet werden. Die Übermittlung stützt sich auf die Garantien im Datenschutznachtrag (Data Protection Agreement) von GitHub (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework). | GitHub is now the US-based processor; the agreement and transfer basis are GitHub's. |
+| 2. Hosting › Externes Hosting (host) | [Netlify, Inc., San Francisco, USA](https://www.netlify.com/privacy/) | [GitHub, Inc., San Francisco, USA](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) | The host changes from Netlify to GitHub. |
+| 4. Datenerfassung › Kontaktformular (Netlify Forms paragraph) | Über das Kontaktformular übermittelte Angaben (Name, E-Mail-Adresse, Nachricht) werden in unserem Auftrag von Netlify (Netlify Forms) entgegengenommen und gespeichert. Wir rufen die Eingaben anschließend dort ab. Es gelten derselbe Vertrag über Auftragsverarbeitung (Art. 28 DSGVO) und derselbe Hinweis zur Übermittlung in die USA wie im Abschnitt „Hosting“. | removed | The contact form is removed, so no form processor remains. |
+
+## EN – Privacy (`/en/privacy/`)
+
+| Section | Old text | New text | Reason |
+|---|---|---|---|
+| 2. Hosting › External Hosting | When you visit this website, Netlify automatically records server log files. These contain the IP address, the date and time of the request, the requested page, the referrer URL, and the browser and operating system. The legal basis is Art. 6 para. 1 lit. f DSGVO (secure and stable delivery of the website). | When you visit this website, GitHub (GitHub Pages) automatically records server log files. These contain the IP address, the date and time of the request, the requested page, the referrer URL, and the browser and operating system. The legal basis is Art. 6 para. 1 lit. f DSGVO (secure and stable delivery of the website). | GitHub Pages replaces Netlify as host and records the server logs. |
+| 2. Hosting › External Hosting | Netlify processes data on our behalf under a data processing agreement (Art. 28 DSGVO). Data may be processed in the USA. The transfer relies on the safeguards in Netlify’s data processing agreement (EU standard contractual clauses / EU–US Data Privacy Framework). | GitHub processes data on our behalf under a data processing agreement (Art. 28 DSGVO). Data may be processed in the USA. The transfer relies on the safeguards in GitHub’s data protection agreement (EU standard contractual clauses / EU–US Data Privacy Framework). | GitHub is now the US-based processor; the agreement and transfer basis are GitHub's. |
+| 2. Hosting › External Hosting (host) | [Netlify, Inc., San Francisco, USA](https://www.netlify.com/privacy/) | [GitHub, Inc., San Francisco, USA](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) | The host changes from Netlify to GitHub. |
+| 4. Data Collection › Contact Form (Netlify Forms paragraph) | Submissions made through the contact form (name, email address, message) are received and stored on our behalf by Netlify (Netlify Forms). We then retrieve them from there. The same data processing agreement (Art. 28 DSGVO) and the same note on transfers to the USA as in the hosting section apply. | removed | The contact form is removed, so no form processor remains. |
+
+## FR – Confidentialité (`/fr/confidentialite/`)
+
+| Section | Old text | New text | Reason |
+|---|---|---|---|
+| 2. Hébergement › Hébergement externe | Lorsque vous visitez ce site web, Netlify enregistre automatiquement des fichiers journaux du serveur. Ils contiennent l’adresse IP, la date et l’heure de la requête, la page demandée, l’URL de référence ainsi que le navigateur et le système d’exploitation. La base juridique est l’art. 6 par. 1 lit. f du RGPD (mise à disposition sûre et stable du site web). | Lorsque vous visitez ce site web, GitHub (GitHub Pages) enregistre automatiquement des fichiers journaux du serveur. Ils contiennent l’adresse IP, la date et l’heure de la requête, la page demandée, l’URL de référence ainsi que le navigateur et le système d’exploitation. La base juridique est l’art. 6 par. 1 lit. f du RGPD (mise à disposition sûre et stable du site web). | GitHub Pages replaces Netlify as host and records the server logs. |
+| 2. Hébergement › Hébergement externe | Netlify traite des données pour notre compte sur la base d’un contrat de sous-traitance (art. 28 du RGPD). Les données peuvent être traitées aux États-Unis. Le transfert repose sur les garanties prévues dans le contrat de sous-traitance de Netlify (clauses contractuelles types de l’UE / cadre de protection des données UE-États-Unis). | GitHub traite des données pour notre compte sur la base d’un contrat de sous-traitance (art. 28 du RGPD). Les données peuvent être traitées aux États-Unis. Le transfert repose sur les garanties prévues dans l’accord de protection des données (Data Protection Agreement) de GitHub (clauses contractuelles types de l’UE / cadre de protection des données UE-États-Unis). | GitHub is now the US-based processor; the agreement and transfer basis are GitHub's. |
+| 2. Hébergement › Hébergement externe (host) | [Netlify, Inc., San Francisco, USA](https://www.netlify.com/privacy/) | [GitHub, Inc., San Francisco, USA](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) | The host changes from Netlify to GitHub. |
+| 4. Collecte de données › Formulaire de contact (Netlify Forms paragraph) | Les informations transmises via le formulaire de contact (nom, adresse e-mail, message) sont reçues et stockées pour notre compte par Netlify (Netlify Forms). Nous les récupérons ensuite auprès de Netlify. Le même contrat de sous-traitance (art. 28 du RGPD) et la même mention concernant le transfert vers les États-Unis que dans la section hébergement s’appliquent. | removed | The contact form is removed, so no form processor remains. |
+
 # Privacy text changes (Netlify migration)
 
 **The privacy text needs Rudy's approval before launch.** It is legal copy, and

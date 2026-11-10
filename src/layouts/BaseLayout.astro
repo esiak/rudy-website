@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { csp } from '../lib/csp';
 import type { Locale, PageKey } from '../i18n/routes';
 import { t } from '../i18n/ui';
 
@@ -20,6 +21,7 @@ const { locale, title, description, pageKey, fullWidth = false } = Astro.props;
 <html lang={locale}>
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content={csp} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
