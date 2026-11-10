@@ -1,13 +1,5 @@
-import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
-import { parse } from 'smol-toml';
-
-const config = parse(readFileSync('netlify.toml', 'utf8')) as unknown as {
-  headers: { for: string; values: Record<string, string> }[];
-};
-const csp = config.headers.find((h) => h.for === '/*')!.values[
-  'Content-Security-Policy'
-];
+import { expectNoCspViolations } from './csp';
 
 const pages = [
   { locale: 'de', contact: '/de/kontakt/', about: '/de/ueber-mich/' },
@@ -109,31 +101,5 @@ for (const { locale, contact, about } of pages) {
 }
 
 test('no CSP violations on /de/', async ({ page }) => {
-  await page.route('**/*', async (route) => {
-    const response = await route.fetch();
-    const headers = { ...response.headers() };
-    if (route.request().resourceType() === 'document') {
-      headers['content-security-policy'] = csp;
-    }
-    await route.fulfill({ response, headers });
-  });
-  const problems: string[] = [];
-  page.on('console', (msg) => {
-    if (
-      msg.type() === 'error' &&
-      msg.text().includes('Content Security Policy')
-    )
-      problems.push(msg.text());
-  });
-  await page.exposeFunction('reportViolation', (m: string) => problems.push(m));
-  await page.addInitScript(() => {
-    document.addEventListener('securitypolicyviolation', (e) =>
-      (
-        window as unknown as { reportViolation: (m: string) => void }
-      ).reportViolation(e.violatedDirective),
-    );
-  });
-  await page.goto('/de/');
-  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  expect(problems).toEqual([]);
+  await expectNoCspViolations(page, '/de/');
 });

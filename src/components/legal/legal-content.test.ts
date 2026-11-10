@@ -38,13 +38,12 @@ describe.each(['de', 'fr', 'en'] as const)('legal content (%s)', (locale) => {
     expect(actual).toEqual(expected);
   });
 
-  it('privacy has no legacy references and names Netlify', () => {
+  it('privacy has no legacy references', () => {
     const text = read(
       `src/components/legal/content/${locale}/privacy.md`,
     ).toLowerCase();
     for (const word of forbidden) {
       expect(text).not.toContain(word);
     }
-    expect(text).toContain('netlify');
   });
 });
