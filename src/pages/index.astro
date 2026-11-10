@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 import { csp } from '../lib/csp';
 ---
 
@@ -6,7 +7,9 @@ import { csp } from '../lib/csp';
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content={csp} />
+    {import.meta.env.PROD && (
+      <meta http-equiv="Content-Security-Policy" content={csp} />
+    )}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dr. Rudy Pastel</title>
     <noscript>
@@ -14,17 +17,19 @@ import { csp } from '../lib/csp';
     </noscript>
   </head>
   <body>
-    <ul>
-      <li>
-        <a href="/de/">Deutsch</a>
-      </li>
-      <li>
-        <a href="/fr/">Français</a>
-      </li>
-      <li>
-        <a href="/en/">English</a>
-      </li>
-    </ul>
+    <main class="container">
+      <ul>
+        <li>
+          <a href="/de/">Deutsch</a>
+        </li>
+        <li>
+          <a href="/fr/">Français</a>
+        </li>
+        <li>
+          <a href="/en/">English</a>
+        </li>
+      </ul>
+    </main>
     <script>
       // The first of de/fr/en in the browser's language list decides.
       const languages = navigator.languages?.length

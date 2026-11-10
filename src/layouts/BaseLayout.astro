@@ -21,7 +21,9 @@ const { locale, title, description, pageKey, fullWidth = false } = Astro.props;
 <html lang={locale}>
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content={csp} />
+    {import.meta.env.PROD && (
+      <meta http-equiv="Content-Security-Policy" content={csp} />
+    )}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
