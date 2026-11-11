@@ -36,13 +36,13 @@ L’hébergement externe a lieu dans le but de remplir nos obligations contractu
 
 Notre ou nos hébergeur(s) ne traiteront vos données que dans la mesure nécessaire pour remplir leurs obligations de service et suivre nos instructions concernant ces données.
 
-Lorsque vous visitez ce site web, Netlify enregistre automatiquement des fichiers journaux du serveur. Ils contiennent l’adresse IP, la date et l’heure de la requête, la page demandée, l’URL de référence ainsi que le navigateur et le système d’exploitation. La base juridique est l’art. 6 par. 1 lit. f du RGPD (mise à disposition sûre et stable du site web).
+Lorsque vous visitez ce site web, GitHub (GitHub Pages) enregistre automatiquement des fichiers journaux du serveur. Ils contiennent l’adresse IP, la date et l’heure de la requête, la page demandée, l’URL de référence ainsi que le navigateur et le système d’exploitation. La base juridique est l’art. 6 par. 1 lit. f du RGPD (mise à disposition sûre et stable du site web).
 
-Netlify traite des données pour notre compte sur la base d’un contrat de sous-traitance (art. 28 du RGPD). Les données peuvent être traitées aux États-Unis. Le transfert repose sur les garanties prévues dans le contrat de sous-traitance de Netlify (clauses contractuelles types de l’UE / cadre de protection des données UE-États-Unis).
+GitHub traite des données pour notre compte sur la base d’un contrat de sous-traitance (art. 28 du RGPD). Les données peuvent être traitées aux États-Unis. Le transfert repose sur les garanties prévues dans l’accord de protection des données (Data Protection Agreement) de GitHub (clauses contractuelles types de l’UE / cadre de protection des données UE-États-Unis).
 
 Nous utilisons l’hébergeur suivant:
 
-[Netlify, Inc., San Francisco, USA](https://www.netlify.com/privacy/)
+[GitHub, Inc., San Francisco, USA](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
 
 ## 3. Informations générales et obligatoires
 
@@ -130,8 +130,6 @@ Si vous nous envoyez des demandes via le formulaire de contact, vos données iss
 Le traitement de ces données repose sur l’art. 6 par. 1 lit. b du RGPD, si votre demande est liée à l’exécution d’un contrat ou nécessaire à la mise en œuvre de mesures précontractuelles. Dans tous les autres cas, le traitement repose sur notre intérêt légitime à traiter efficacement les demandes qui nous sont adressées (art. 6 par. 1 lit. f du RGPD) ou sur votre consentement (art. 6 par. 1 lit. a du RGPD), si celui-ci a été demandé ; le consentement peut être révoqué à tout moment.
 
 Les données que vous saisissez dans le formulaire de contact restent chez nous jusqu’à ce que vous nous demandiez de les supprimer, que vous révoquiez votre consentement au stockage ou que la finalité du stockage des données disparaisse (par exemple après le traitement de votre demande). Les dispositions légales impératives – en particulier les délais de conservation – restent inchangées.
-
-Les informations transmises via le formulaire de contact (nom, adresse e-mail, message) sont reçues et stockées pour notre compte par Netlify (Netlify Forms). Nous les récupérons ensuite auprès de Netlify. Le même contrat de sous-traitance (art. 28 du RGPD) et la même mention concernant le transfert vers les États-Unis que dans la section hébergement s’appliquent.
 
 ### Demande par e-mail, téléphone ou télécopie
 

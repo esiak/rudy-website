@@ -66,7 +66,7 @@ Images (`docs/source-content/images/`):
 | Fonts | Poppins, self-hosted with `@fontsource/poppins` (no Google Fonts requests) |
 | Lint / format | ESLint (`eslint-plugin-astro`) and Prettier (`prettier-plugin-astro`) |
 | Tests | Vitest for logic (i18n helpers, content schemas); Playwright for smoke tests of the built site |
-| Hosting | Netlify (static deploy, Netlify Forms, `_redirects` / `netlify.toml`) |
+| Hosting | GitHub Pages, deployed by GitHub Actions (`.github/workflows/deploy.yml`) |
 
 `package.json` must define the `lint`, `typecheck` (`astro check`), `test` and
 `build` scripts, because `factory/checks.sh` runs them. `npm run dev -- --port
@@ -75,7 +75,7 @@ updated to describe the stack, setup, dev server and validation.
 
 ## Information architecture
 
-German is the default language. The old site redirects `/` to German.
+German is the default language. The old site redirected `/` to German.
 
 | Page | DE | FR | EN |
 |---|---|---|---|
@@ -85,17 +85,21 @@ German is the default language. The old site redirects `/` to German.
 | Contact | `/de/kontakt/` | `/fr/contact/` | `/en/contact/` |
 | Imprint | `/de/impressum/` | `/fr/mentions-legales/` | `/en/imprint/` |
 | Privacy | `/de/datenschutz/` | `/fr/confidentialite/` | `/en/privacy/` |
-| Contact form thanks | `/de/kontakt/danke/` | `/fr/contact/merci/` | `/en/contact/thanks/` |
 | 404 | `/404.html`, shown in the visitor's language where the path tells it, German otherwise |
 
-- `/` redirects to `/fr/` or `/en/` when the browser language is French or
-  English, and to `/de/` otherwise (Netlify `Language` redirect conditions).
+- `/` is a client-side language redirect: a script walks `navigator.languages`
+  and goes to `/fr/` or `/en/` when the first of de/fr/en in the list is French
+  or English, and to `/de/` otherwise. Without JavaScript, a `<noscript>` meta
+  refresh sends the visitor to `/de/`.
 - Every page is mapped to its counterpart in the other two languages, so the
   language switcher and the `hreflang` links lead to the same page, not the
   home page.
 - Trailing slashes are always present.
 
-### Old URL redirects (301)
+### Old URL redirects (meta refresh)
+
+Astro's `redirects` option builds each one as a static page with a meta refresh
+and a canonical link to the new URL (not a 301).
 
 | Old | New |
 |---|---|
@@ -112,7 +116,6 @@ German is the default language. The old site redirects `/` to German.
 | `/fr/impressumfr/` | `/fr/mentions-legales/` |
 | `/en/privacy-policy/` | `/en/privacy/` |
 | `/de/feed/`, `/fr/feed/`, `/en/feed/`, `/*/comments/feed/` | the language's home |
-| `/wp-admin/*`, `/wp-login.php`, `/wp-content/*`, `/xmlrpc.php` | `410 Gone` |
 
 `/de/ueber-mich/`, `/de/kontakt/`, `/de/impressum/`, `/de/datenschutz/` and
 `/fr/confidentialite/` keep their current URLs.
@@ -189,24 +192,16 @@ skills, the customer testimonial (shared with Home) and a closing "Let's talk"
 CTA.
 
 ### Contact
-- A form with Name, Email and Message fields, all required, with visible
-  labels and client-side validation messages in the page's language.
-- Submitted through **Netlify Forms** (`data-netlify="true"`, a honeypot field
-  for spam). No third-party scripts.
-- On success, show the language's thanks page. With JavaScript off, the
-  form still works as a plain POST.
-- Next to the form: the "Message me" text and a `mailto:` link to
-  `pastel.web@rudypastel.com`.
-- A short note under the button saying how the data is used, linking to the
-  privacy policy.
+- The "Message me" text and a `mailto:` link to `pastel.web@rudypastel.com`.
+  There is no contact form.
 
 ### Legal pages
 - Imprint and Privacy are rendered from Markdown in all three languages.
 - The **imprint** moves over unchanged.
 - The **privacy policy** must be updated for the new setup: remove the
   sections about WordPress, Elementor, CookieLawInfo, cookies and any
-  plugins that are gone, and describe Netlify as host (server logs) and as
-  form processor. **Rudy has to review and approve the changed text before
+  plugins that are gone, and describe GitHub (GitHub Pages) as host (server
+  logs). There is no form processor. **Rudy has to review and approve the changed text before
   launch.** The PR has to list every changed paragraph.
 
 ## SEO and metadata
@@ -230,22 +225,27 @@ CTA.
   controls, `prefers-reduced-motion` honored.
 - No layout shift from images or fonts (`width`/`height` on images,
   `font-display: swap`).
-- No client-side JavaScript except the mobile menu toggle and form
-  validation; both work as progressive enhancement.
+- No client-side JavaScript except the mobile menu toggle and the language
+  redirect on `/`; both work as progressive enhancement.
 - `bash factory/checks.sh` passes.
 
 ## Hosting and deploy
 
-- `netlify.toml`: build command `npm run build`, publish `dist`, the Node
-  version pinned.
+- `.github/workflows/deploy.yml` builds with `npm run build` and deploys `dist`
+  to GitHub Pages on every push to `main` (and on manual dispatch). Node comes
+  from `.nvmrc`.
+- `site: 'https://rudypastel.com'` in `astro.config.mjs`; no `base`.
 - Redirects as above, and the `/` language redirect.
-- Security headers: `Content-Security-Policy` (self only, plus Netlify Forms),
-  `X-Content-Type-Options: nosniff`, `Referrer-Policy:
-  strict-origin-when-cross-origin`, `Permissions-Policy` that denies
-  everything unused, `Strict-Transport-Security`. Long cache headers for
-  hashed assets.
-- Launch (connecting the Netlify site, switching DNS, retiring WordPress) is a
-  manual checklist, tracked in its own issue and not built by the factory.
+- The Content Security Policy is a `<meta http-equiv>` tag (self only, no
+  inline scripts or styles), defined in `src/lib/csp.ts`. GitHub Pages cannot
+  set headers, so `frame-ancestors`, `X-Frame-Options`, `Permissions-Policy`,
+  `Referrer-Policy`, `X-Content-Type-Options`, HSTS and the long cache headers
+  are dropped.
+- The WordPress paths (`/wp-admin/*` and so on) fall through to `404.html`
+  instead of returning 410.
+- Launch (enabling Pages, the custom domain and HTTPS, switching DNS, shutting
+  down Netlify, retiring WordPress) is a manual checklist, tracked in its own
+  issue and not built by the factory.
 
 ## Story order
 
@@ -257,7 +257,7 @@ CTA.
              │                   │                      └─ #9 Legal pages
              └───────────────────┴─ #4 Content collections ─┘ (#5, #6, #7)
 #10 SEO & metadata      after #5–#9
-#11 Netlify config, redirects, 404, headers   after #2
+#11 Hosting config, redirects, 404, headers   after #2
 #12 Launch checklist    manual, last
 ```
 

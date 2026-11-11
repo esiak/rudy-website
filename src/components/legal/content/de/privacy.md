@@ -38,13 +38,13 @@ Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren
 
 Unser(e) Hoster wird bzw. werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen.
 
-Beim Besuch dieser Website erfasst Netlify automatisch Server-Logfiles. Dazu gehören die IP-Adresse, Datum und Uhrzeit der Anfrage, die aufgerufene Seite, die Referrer-URL sowie Browser und Betriebssystem. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sichere und stabile Bereitstellung der Website).
+Beim Besuch dieser Website erfasst GitHub (GitHub Pages) automatisch Server-Logfiles. Dazu gehören die IP-Adresse, Datum und Uhrzeit der Anfrage, die aufgerufene Seite, die Referrer-URL sowie Browser und Betriebssystem. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sichere und stabile Bereitstellung der Website).
 
-Netlify verarbeitet Daten in unserem Auftrag auf Grundlage eines Vertrags über Auftragsverarbeitung (Art. 28 DSGVO). Die Daten können dabei in den USA verarbeitet werden. Die Übermittlung stützt sich auf die Garantien im Auftragsverarbeitungsvertrag von Netlify (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).
+GitHub verarbeitet Daten in unserem Auftrag auf Grundlage eines Vertrags über Auftragsverarbeitung (Art. 28 DSGVO). Die Daten können dabei in den USA verarbeitet werden. Die Übermittlung stützt sich auf die Garantien im Datenschutznachtrag (Data Protection Agreement) von GitHub (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).
 
 Wir setzen folgende(n) Hoster ein:
 
-[Netlify, Inc., San Francisco, USA](https://www.netlify.com/privacy/)
+[GitHub, Inc., San Francisco, USA](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
 
 ## 3. Allgemeine Hinweise und Pflicht­informationen
 
@@ -130,8 +130,6 @@ Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben a
 Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.
 
 Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.
-
-Über das Kontaktformular übermittelte Angaben (Name, E-Mail-Adresse, Nachricht) werden in unserem Auftrag von Netlify (Netlify Forms) entgegengenommen und gespeichert. Wir rufen die Eingaben anschließend dort ab. Es gelten derselbe Vertrag über Auftragsverarbeitung (Art. 28 DSGVO) und derselbe Hinweis zur Übermittlung in die USA wie im Abschnitt „Hosting“.
 
 ### Anfrage per E-Mail, Telefon oder Telefax
 

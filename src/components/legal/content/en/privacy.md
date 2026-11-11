@@ -36,13 +36,13 @@ External hosting is carried out for the purpose of fulfilling contracts with our
 
 Our host(s) will only process your data to the extent necessary to fulfill their service obligations and follow our instructions regarding this data.
 
-When you visit this website, Netlify automatically records server log files. These contain the IP address, the date and time of the request, the requested page, the referrer URL, and the browser and operating system. The legal basis is Art. 6 para. 1 lit. f DSGVO (secure and stable delivery of the website).
+When you visit this website, GitHub (GitHub Pages) automatically records server log files. These contain the IP address, the date and time of the request, the requested page, the referrer URL, and the browser and operating system. The legal basis is Art. 6 para. 1 lit. f DSGVO (secure and stable delivery of the website).
 
-Netlify processes data on our behalf under a data processing agreement (Art. 28 DSGVO). Data may be processed in the USA. The transfer relies on the safeguards in Netlify’s data processing agreement (EU standard contractual clauses / EU–US Data Privacy Framework).
+GitHub processes data on our behalf under a data processing agreement (Art. 28 DSGVO). Data may be processed in the USA. The transfer relies on the safeguards in GitHub’s data protection agreement (EU standard contractual clauses / EU–US Data Privacy Framework).
 
 We use the following host(s):
 
-[Netlify, Inc., San Francisco, USA](https://www.netlify.com/privacy/)
+[GitHub, Inc., San Francisco, USA](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
 
 ## 3. General Information and Mandatory Information
 
@@ -130,8 +130,6 @@ If you send us inquiries via the contact form, your details from the inquiry for
 The processing of this data is based on Art. 6 para. 1 lit. b DSGVO if your request is related to the fulfillment of a contract or necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective processing of the inquiries addressed to us (Art. 6 para. 1 lit. f DSGVO) or on your consent (Art. 6 para. 1 lit. a DSGVO) if this has been requested; the consent can be revoked at any time.
 
 The data you enter in the contact form will remain with us until you request us to delete it, revoke your consent to storage, or the purpose for data storage no longer applies (e.g., after your request has been processed). Mandatory legal provisions – particularly retention periods – remain unaffected.
-
-Submissions made through the contact form (name, email address, message) are received and stored on our behalf by Netlify (Netlify Forms). We then retrieve them from there. The same data processing agreement (Art. 28 DSGVO) and the same note on transfers to the USA as in the hosting section apply.
 
 ### Inquiry by Email, Phone, or Fax
 

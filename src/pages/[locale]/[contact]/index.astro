@@ -1,5 +1,4 @@
 ---
-import ContactForm from '../../../components/contact/ContactForm.astro';
 import { locales, routes } from '../../../i18n/routes';
 import type { Locale } from '../../../i18n/routes';
 import { t } from '../../../i18n/ui';
@@ -34,11 +33,6 @@ const label = t(locale, 'nav.contact');
   </section>
   <div class={`contact contact--${locale}`}>
     <div class="contact__row">
-      <section class="contact__card" aria-labelledby="contact-form-title">
-        <h2 id="contact-form-title">{t(locale, 'contact.formTitle')}</h2>
-        <div class="contact__divider"></div>
-        <ContactForm locale={locale} />
-      </section>
       <aside class="contact__side">
         <h2>{t(locale, 'contact.messageMeTitle')}</h2>
         <div class="contact__divider"></div>
@@ -76,40 +70,6 @@ const label = t(locale, 'nav.contact');
     padding-block-start: 50px;
   }
 
-  .contact__card {
-    border-radius: 7px;
-    box-shadow: 0 0 45px 0 rgb(213 191 191 / 50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-inline: 25px;
-    min-width: 0;
-    width: 68.75%;
-  }
-
-  .contact__card h2 {
-    color: var(--color-navy);
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.3;
-    margin: 0;
-  }
-
-  /* The French and English pages use a small form heading set lower, and
-     the English page a large "Message me!" heading. */
-  .contact--fr .contact__card h2,
-  .contact--en .contact__card h2 {
-    font-size: 1rem;
-    line-height: 1.2;
-  }
-
-  @media (min-width: 768px) {
-    .contact--fr .contact__card h2,
-    .contact--en .contact__card h2 {
-      margin-block-start: 35px;
-    }
-  }
-
   .contact--en .contact__side h2 {
     font-size: 22px;
     line-height: 1.3;
@@ -126,8 +86,7 @@ const label = t(locale, 'nav.contact');
     flex-direction: column;
     gap: 20px;
     min-width: 0;
-    padding: 25px 25px 25px 10px;
-    width: 31.25%;
+    padding: 25px;
   }
 
   .contact__side h2 {
@@ -140,6 +99,7 @@ const label = t(locale, 'nav.contact');
 
   .contact__text {
     color: var(--color-text);
+    max-width: 60ch;
     padding-inline-end: 55px;
   }
 
@@ -169,15 +129,9 @@ const label = t(locale, 'nav.contact');
       padding: 33px 20px 0 0;
     }
 
-    .contact__card {
-      margin: 10px;
-      width: 71.25%;
-    }
-
     .contact__side {
       margin: 10px;
       padding: 0;
-      width: 28.75%;
     }
 
     .contact__text {
@@ -186,7 +140,6 @@ const label = t(locale, 'nav.contact');
   }
 
   @media (max-width: 921px) {
-    .contact--de .contact__card h2,
     .contact--en .contact__side h2 {
       font-size: 20px;
     }
@@ -203,20 +156,9 @@ const label = t(locale, 'nav.contact');
       padding: 0;
     }
 
-    .contact__card {
-      margin: 5px 10px 10px;
-      padding-block: 30px;
-      width: auto;
-    }
-
-    .contact__card .contact__divider {
-      margin-inline: auto;
-    }
-
     .contact__side {
       margin: 0 0 19.5px;
       padding: 30px 10px 0;
-      width: auto;
     }
   }
 </style>

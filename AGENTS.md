@@ -6,7 +6,7 @@ tests of the built site.
 
 Key paths: `src/pages/` (routes), `e2e/` (Playwright specs), `astro.config.mjs`,
 `tsconfig.json`, `eslint.config.js`, `.prettierrc`, `vitest.config.ts`,
-`playwright.config.ts`, `netlify.toml`, `.nvmrc`.
+`playwright.config.ts`, `.github/workflows/deploy.yml`, `.nvmrc`.
 `src/i18n/` holds the route map (`routes.ts`) and UI
 strings (`ui.ts`); new pages and strings must be added for all three languages.
 Content: `src/content.config.ts` (collections), `src/content/` (one JSON file
@@ -20,8 +20,6 @@ entry from `getTestimonials`); page-specific components live in
 Home lives in `src/pages/[locale]/index.astro` with its components in
 `src/components/home/` and copy in `src/i18n/home.ts`; `BaseLayout`'s `fullWidth`
 prop is for pages built from full-bleed sections.
-`src/components/contact/` holds the contact form and its script. The thanks
-pages live outside the route map (slugs in `src/components/contact/thanks.ts`).
 Legal pages: `src/components/legal/` (component, styles and Markdown content); the
 page files are in `src/pages/{de,fr,en}/`; privacy changes are tracked in
 `docs/privacy-changes.md`.
@@ -50,11 +48,14 @@ Keep this section and that script in step.
 
 ## Deploy
 
-Netlify builds from `netlify.toml`. The Node version is pinned in `.nvmrc`,
-`netlify.toml` (`NODE_VERSION`) and `package.json` `engines`; keep them in
-step. The redirects mirror `docs/rebuild-spec.md`. The CSP forbids inline
-scripts and styles, so keep `inlineStylesheets: 'never'` in `astro.config.mjs`
-and add no inline `<script>`, `<style>` or `style` attributes.
+GitHub Pages, deployed by `.github/workflows/deploy.yml` on push to `main`
+and served at `https://rudypastel.com` (`site` in `astro.config.mjs`). The
+Node version is pinned in `.nvmrc` (the workflow reads it) and `package.json`
+`engines`. The old WordPress URLs are Astro `redirects` in `astro.config.mjs`.
+The CSP is a `<meta>` tag, defined in `src/lib/csp.ts` and used by
+`BaseLayout` and `src/pages/index.astro`. It forbids inline scripts and
+styles, so keep `inlineStylesheets: 'never'` in `astro.config.mjs` and add no
+inline `<script>`, `<style>` or `style` attributes.
 
 ## Software factory
 

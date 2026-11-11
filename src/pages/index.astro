@@ -1,14 +1,47 @@
 ---
+import '../styles/global.css';
+import { csp } from '../lib/csp';
 ---
 
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
+    {import.meta.env.PROD && (
+      <meta http-equiv="Content-Security-Policy" content={csp} />
+    )}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Website under construction</title>
+    <title>Dr. Rudy Pastel</title>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/de/" />
+    </noscript>
   </head>
   <body>
-    <h1>Website under construction</h1>
+    <main class="container">
+      <ul>
+        <li>
+          <a href="/de/">Deutsch</a>
+        </li>
+        <li>
+          <a href="/fr/">Français</a>
+        </li>
+        <li>
+          <a href="/en/">English</a>
+        </li>
+      </ul>
+    </main>
+    <script>
+      // The first of de/fr/en in the browser's language list decides.
+      const languages = navigator.languages?.length
+        ? navigator.languages
+        : [navigator.language];
+      const supported = ['de', 'fr', 'en'];
+      const first = languages
+        .map((tag) => tag.split('-')[0].toLowerCase())
+        .find((lang) => supported.includes(lang));
+      location.replace(
+        first === 'fr' || first === 'en' ? `/${first}/` : '/de/',
+      );
+    </script>
   </body>
 </html>
